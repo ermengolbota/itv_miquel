@@ -2,6 +2,9 @@
 
 MyITV allows you to create and manage ITV appointments with IAMotors.
 
+## Flux ##
+[Moqup](https://app.moqups.com/a15aracarjim@iam.cat/KabVlsjmo6/view)
+
 ## Getting Started ##
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
