@@ -37,17 +37,18 @@ Please read CONTRIBUTING.md for details on our code of conduct, and the process 
 WIP
 
 ## Authors ##
-Joan Calafat Sastre
-Arantxa Cardona JimÃ©nez
-Miquel Vidal Gomila
+* Joan Calafat Sastre
+* Arantxa Cardona Jiménez
+* Miquel Vidal Gomila
 
 ## License ##
-WIP
+This project is licensed under the GPLv3 - see the [LICENSE.md](https://bitbucket.org/a15miqvidgom/myitv/src/09529a05e822ba19ef24e9dda9035bbafccc9eb2/LICENSE.md) file for details.
 
 ## Acknowledgments ##
 WIP
 
 -- DELETE FROM HERE
+
 This README would normally document whatever steps are necessary to get your application up and running.
 
 ### What is this repository for? ###
