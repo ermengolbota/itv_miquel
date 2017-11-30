@@ -14,14 +14,15 @@ CREATE TABLE Carril (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE Reserva (
+	id CHAR(17) UNIQUE,
+	matricula CHAR(7),
 	dia DATE,
 	hora TIME,
 	num_carril INT(1),
 	id_centre INT(3),
-	matricula CHAR(7),
 	tipus_vehicle VARCHAR(10),
 	mail VARCHAR(50),
 	FOREIGN KEY(num_carril) REFERENCES Carril(num),
 	FOREIGN KEY(id_centre) REFERENCES Carril(id_centre),
-	PRIMARY KEY (dia, hora, num_carril, id_centre)
+	PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
