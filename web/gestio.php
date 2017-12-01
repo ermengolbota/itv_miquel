@@ -26,13 +26,46 @@
 		if (isset($_POST['localitzar'])) {
 			require_once 'php/config.php';
 			require_once 'php/gestioFunctions.php';
-			$conn = mysqli_connect($db_hostname, $db_usernamek, $db_password, $db_database);
-			if (!$conn) {
-				die("Unable to connect to MySQL: " . mysql_error());
+			$conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+			if ($conn->connect_error) {
+    			die("Connection failed: " . $conn->connect_error);
 			}
 			$id = $_POST["id"];
-			if (validateID($id) == 1) {
-				echo "nope";
+			if (validateID($id) == 0) {
+				$sql = "SELECT matricula, dia, hora, mail FROM Reserva WHERE id LIKE '$id';";
+				echo "<p>query: ".$sql."</p>";
+				$result = $conn->query($sql);
+				if ($result->num_rows > 0) {
+					?>
+					<table border=1>
+						<tr>
+							<th>Matrícula</th>
+							<th>Dia</th>
+							<th>Hora</th>
+							<th>Email</th>
+							<th>Editar</th>
+							<th>Eliminar</th>
+						</tr>
+					<?php
+   					 // output data of each row
+    				while($row = $result->fetch_row()) {
+    					echo "<tr>";
+						for ($i = 0; $i < 4; $i++) {
+       				 		echo "<td>" . $row[$i]. "</td>";
+						}
+						?>
+						<td><a href="">img editar</a></td>
+						<td><a href="">img eliminar</a></td>
+						</tr>
+						<?php
+    				}
+					?>
+					</table>
+					<?php
+				} else {
+   					 echo "0 results";
+				}
+				$conn->close();
 			}
 		}
 	?>
