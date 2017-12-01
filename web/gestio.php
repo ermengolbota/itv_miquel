@@ -13,6 +13,7 @@
 </head>
 <body>
 	<h1>Gestio</h1>
+	<input type="button" value="Inici" onclick="window.location.href='index.php'"" />
 	<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 		<p>
 			<label for="id">Introdueix l'identificador</label>
