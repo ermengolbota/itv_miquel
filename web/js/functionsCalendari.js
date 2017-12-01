@@ -11,14 +11,14 @@ var Calendar = (function() {
 	var getNameMonth = function(month){
 		var array = ["Gener", "Febrer", "Març", "Abril", "Maig", "Juny", "Juliol", "Agost", "Setembre", "Octubre", "Novembre", "Desembre"];
 		return array[month-1];
-	}
+	};
 
 	var beforeButtonMonth = function(year,month,day){
 		var beforeMonth = month-1;
 
 		if(beforeMonth<1){
 			beforeMonth = 12;
-			y = year-1;
+			year = year-1;
 		}
 		var nameMonth = getNameMonth(beforeMonth);
 		var y = year;
@@ -26,14 +26,14 @@ var Calendar = (function() {
 		var str = '<button type="button" onClick="Calendar.changeMonth('+y+','+beforeMonth+','+day+')"> « '+nameMonth+'</button>';
 		return str;
 
-	}
+	};
 
 	var afterButtonMonth = function(year,month,day){
 		var afterMonth = month+1;
 
 		if(afterMonth>12){
 			afterMonth = 1;
-			y = year+1;
+			year = year+1;
 		}
 
 		var nameMonth = getNameMonth(afterMonth);
@@ -41,7 +41,7 @@ var Calendar = (function() {
 
 		var str = '<button type="button" onClick="Calendar.changeMonth('+y+','+afterMonth+','+day+')">'+nameMonth+' » </button>';
 		return str;
-	}
+	};
 
 	var changeMonth = function(year,month,day){
 
@@ -52,7 +52,8 @@ var Calendar = (function() {
 		}
 
 		$('#calendari').html(Calendar.imprimir(datos));
-	}
+		Calendar.getDataDay(datos);
+	};
 
 	var createTable = function(year,month,day){
 		
@@ -76,12 +77,13 @@ var Calendar = (function() {
 
 		var days = 0;
 
-		var str = '<h1>'+getNameMonth(month)+'</h1>';
+		var str = '<h1>'+getNameMonth(month)+' '+year+'</h1>';
 		
 		str += '<table><thead><tr><th>DILL</th><th>DIMA</th><th>DIME</th><th>DIJ</th><th>DIV</th><th>DIS</th><th>DIU</th></tr></thead>';
 		for(i=0;i<6;i++){
 			str += '<tr>';
 			for(j=0;j<7;j++){
+				/* Afegeix els darrers dies del mes anterior */
 				if(i==0 && j==0){
 					for(k=0;k<7;k++){
 						if((day1==0 && k==6) || (day1==1 && k==0) || (day1==2 && k==1)
@@ -92,23 +94,27 @@ var Calendar = (function() {
 						days++;
 					}
 				}
-				
+				/* Avisa de que es alla on comenca el dia 1 del mes obtingut */
 				if((day1==0 && j==6) || (day1==1 && j==0) || (day1==2 && j==1)
 					|| (day1==3 && j==2) || (day1==4 && j==3) || (day1==5 && j==4)
 					|| (day1==6 && j==5)){
 					aux = true;
 				}
-
+				/* Pinta els dies del mes obtingut i arregla el problema de que no pinta el diumenge */
 				if (aux && cont <= dm && day == cont){
-					str += '<td>'+cont+'</td>';
+					str += '<td class="nowMonth">'+cont+'</td>';
 					cont++;
 				} else if(aux && cont <= dm){
-					str += '<td>'+cont+'</td>';
+					str += '<td class="nowMonth">'+cont+'</td>';
 					cont++;
-				} else if (cont > dm) {
+				} 
+				/* Pinta els dies del mes seguent despres del obtingut */
+				else if (cont > dm) {
 					str += '<td>'+cont2+'</td>';
 					cont2++;
-				} else {
+				} 
+				/* Pinta els dies del mes anterior al principi */
+				else {
 					var bm = befm - days + 1;
 					str += '<td>'+bm+'</td>';
 					days--;
@@ -118,7 +124,7 @@ var Calendar = (function() {
 		}
 		str += '</table>';
 		return str;
-	}
+	};
 
 
 	var imprimir = function(datos) {
@@ -129,7 +135,7 @@ var Calendar = (function() {
 		// Obte el mes d'avui
 		var month = datos.mes || 1;
 		
-		// Obte el mes d'avui
+		// Obte l'any d'avui
 		var year = datos.any || 2017;
 
 		var str = createTable(year,month,day);
@@ -139,8 +145,22 @@ var Calendar = (function() {
 		return str;
 	};
 
+	var getDataDay = function(datos){
+		$('table').on('click','.nowMonth',function(){
+			var day = $(this).html();
+			console.log(day);
+			var month = datos.mes || 1;
+			var year = datos.any || 2017;
+			console.log(month);
+			console.log(year);
+			url = "http://localhost/myitv/web/hores.php?day=" + day + "&month=" + month + "&year=" + year;
+			window.location.replace(url);
+		});
+	};
+
 	return {
 		imprimir : imprimir,
-		changeMonth : changeMonth
+		changeMonth : changeMonth,
+		getDataDay : getDataDay
 	};
 }());

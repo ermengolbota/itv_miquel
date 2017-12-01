@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
  <html>
- <link rel="stylesheet" href="../lib/normalize.css">
- <link rel="stylesheet" href="../lib/skeleton.css">
+ <link rel="stylesheet" href="lib/normalize.css">
+ <link rel="stylesheet" href="lib/skeleton.css">
 <!--<link rel="stylesheet" href="../css/myitvdesign.css">-->
- <script type="text/javascript" language="javascript" src="../js/functions.js"></script>
- <script src="../lib/jquery.js"></script>
+ <script type="text/javascript" language="javascript" src="js/functionsCalendari.js"></script>
+ <script src="lib/jquery.js"></script>
 <head>
 <meta charset="utf-8" />
 <title>IAMotors</title>
@@ -28,6 +28,7 @@
               any : yyyy
             };
             $('#calendari').html(Calendar.imprimir(datos));
+            Calendar.getDataDay(datos);
           </script>
     		</div>
     		<div class="three columns"></div>
