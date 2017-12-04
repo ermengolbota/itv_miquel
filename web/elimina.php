@@ -11,6 +11,8 @@
 	<title>Confirmar eliminació</title>
 </head>
 <body>
+	<div class="header"><?php include "header.php" ?></div>
+	<h1>Vols eliminar la següent cita</h1>
 	<?php
 		if (isset($_POST["deleteEntry"])) {
 			?>
@@ -39,5 +41,6 @@
 			}
 		}
 	?>
+	<div id="footer"><?php include "footer.php" ?></div>
 </body>
 </html>

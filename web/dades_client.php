@@ -16,6 +16,7 @@
 
 
 <body>
+	<div class="header"><?php include "header.php" ?></div>
 
 	<?php
 	if(!isset($matricula)){
@@ -25,7 +26,6 @@
 	$dia = "2017-11-11";//$_POST['dia'];
 	$hora = "17:00:00";//$_POST['hora'];
 	?>
-	
 	<table>
 		<tr>
 			<div id="edit_matricula">
@@ -51,6 +51,6 @@
 			</td>
 		</tr>
 	</table>
-
+	<div id="footer"><?php include "footer.php" ?></div>
 </body>
 </html>
