@@ -15,15 +15,24 @@ var Calendar = (function() {
 
 	var beforeButtonMonth = function(year,month,day){
 		var beforeMonth = month-1;
+		var beforeYear = year;
 
 		if(beforeMonth<1){
 			beforeMonth = 12;
-			year = year-1;
+			beforeYear = year-1;
 		}
 		var nameMonth = getNameMonth(beforeMonth);
-		var y = year;
 
-		var str = '<button type="button" onClick="Calendar.changeMonth('+y+','+beforeMonth+','+day+')"> « '+nameMonth+'</button>';
+		// Dia d'avui
+		var today = new Date();
+		var todayM = today.getMonth()+1;
+		var todayY = today.getFullYear();
+
+		if (beforeMonth<=todayM && year <= todayY) {
+			var str = '<button type="button" class="disabled"> « '+nameMonth+'</button>';
+		} else {
+			var str = '<button type="button" onClick="Calendar.changeMonth('+beforeYear+','+beforeMonth+','+day+')"> « '+nameMonth+'</button>';
+		}
 		return str;
 
 	};
@@ -100,14 +109,21 @@ var Calendar = (function() {
 					|| (day1==6 && j==5)){
 					aux = true;
 				}
-				/* Pinta els dies del mes obtingut i arregla el problema de que no pinta el diumenge */
-				if (aux && cont <= dm && day == cont){
+				/* Pinta els dies del mes obtingut */
+				/*if (aux && cont <= dm && day == cont){
 					str += '<td class="nowMonth">'+cont+'</td>';
 					cont++;
-				} else if(aux && cont <= dm){
-					str += '<td class="nowMonth">'+cont+'</td>';
+				} else*/
+				// Si el dia que pinta es anterior al dia d'avui no el podra seleccionar
+				if(aux && cont <= dm && cont<day){
+					str += '<td>'+cont+'</td>';
 					cont++;
 				} 
+				// Dies que l'usuari podra seleccionar
+				else if(aux && cont <= dm && cont>=day){
+					str += '<td class="nowMonth">'+cont+'</td>';
+					cont++;
+				}
 				/* Pinta els dies del mes seguent despres del obtingut */
 				else if (cont > dm) {
 					str += '<td>'+cont2+'</td>';
@@ -140,7 +156,7 @@ var Calendar = (function() {
 
 		var str = createTable(year,month,day);
 
-		str += '<div style="width: 100%"><span style="float:left">'+beforeButtonMonth(year,month)+'</span> <span style="float:right">'+afterButtonMonth(year,month)+'</span></div>';
+		str += '<div style="width: 100%"><span style="float:left">'+beforeButtonMonth(year,month,day)+'</span> <span style="float:right">'+afterButtonMonth(year,month,day)+'</span></div>';
 
 		return str;
 	};
