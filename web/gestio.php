@@ -12,7 +12,7 @@
 	<title>Gestio</title>
 </head>
 <body>
-	<div class="header"><?php include "header.php"; ?></div>
+	<?php include "header.php"; ?>
 	<h1>Gestio</h1>
 	<input type="button" value="Inici" onclick="window.location.href='./'"" />
 	<?php

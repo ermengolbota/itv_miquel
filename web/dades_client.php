@@ -16,7 +16,7 @@
 
 
 <body>
-	<div class="header"><?php include "header.php" ?></div>
+	<?php include "header.php" ?>
 
 	<?php
 	if(!isset($matricula)){
