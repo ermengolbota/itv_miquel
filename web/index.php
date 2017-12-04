@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 
  <html class="">
+ <head>
  <link rel="stylesheet" href="css/myitvdesign.css">
  <link rel="stylesheet" href="lib/normalize.css">
  <link rel="stylesheet" href="lib/skeleton.css">
  <script src="lib/jquery.js"></script>
  <script src="js/functionsIndex.js"></script>
-<script>
-
-</script>
 <meta charset="utf-8" />
-
+</head>
 <body>
+    <div class="header"><?php include "header.php" ?></div>
 	<form>
 	<input type="button" value="Gestiona" onclick="window.location.href='gestio.php'"" />
 </form>
@@ -29,5 +28,6 @@ $matricula = $_POST['matricula'];
         echo "<p style='color: red'>Tienes que rellenar la matricula";
      }
 ?>
+<div id="footer"><?php include "footer.php" ?></div>
 </body>
 </html>

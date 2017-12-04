@@ -3,7 +3,7 @@
  <html>
  <link rel="stylesheet" href="lib/normalize.css">
  <link rel="stylesheet" href="lib/skeleton.css">
-<!--<link rel="stylesheet" href="../css/myitvdesign.css">-->
+ <link rel="stylesheet" href="css/myitvdesign.css">
  <script type="text/javascript" language="javascript" src="js/functionsCalendari.js"></script>
  <script src="lib/jquery.js"></script>
 <head>
@@ -11,6 +11,7 @@
 <title>IAMotors</title>
 </head>
 <body>
+  <div class="header"><?php include "header.php" ?></div>
 	<div class="container" style="width:100%">
   		<div class="row">
     		<div class="three columns"><p></p></div>
@@ -29,10 +30,10 @@
           
            ?>
     			<script language="javascript">
-            var dd =  <?php echo $day; ?> /*|| today.getDate()*/;
+            var dd =  <?php echo $day; ?>;
             console.log(dd);
-            var mm = <?php echo $month; ?> /*|| today.getMonth()+1*/; 
-            var yyyy = <?php echo $year; ?> /*|| today.getFullYear()*/;
+            var mm = <?php echo $month; ?>; 
+            var yyyy = <?php echo $year; ?>;
 
             var datos = {
               dia : dd,
@@ -46,5 +47,6 @@
     		<div class="three columns"></div>
   		</div>
   	</div>
+    <div id="footer"><?php include "footer.php" ?></div>
 </body>
 </html>

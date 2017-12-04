@@ -12,6 +12,7 @@
 	<title>Gestio</title>
 </head>
 <body>
+	<div class="header"><?php include "header.php" ?></div>
 	<h1>Gestio</h1>
 	<input type="button" value="Inici" onclick="window.location.href='index.php'"" />
 	<!--<form method="POST" action="<?php //echo $_SERVER['PHP_SELF']; ?>">
@@ -99,5 +100,6 @@
 			<?php
 		}
 	?>
+	<div id="footer"><?php include "footer.php" ?></div>
 </body>
 </html>

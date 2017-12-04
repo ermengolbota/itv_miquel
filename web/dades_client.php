@@ -16,6 +16,7 @@
 <h1>Dades_client</h1>
 
 <body>
+	<div class="header"><?php include "header.php" ?></div>
 	<table>
 		<tr>
 			<td>
@@ -26,6 +27,6 @@
 			</td>
 		</tr>
 	</table>
-
+	<div id="footer"><?php include "footer.php" ?></div>
 </body>
 </html>
