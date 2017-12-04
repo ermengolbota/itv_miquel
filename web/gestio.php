@@ -12,18 +12,9 @@
 	<title>Gestio</title>
 </head>
 <body>
-	<div class="header"><?php include "header.php" ?></div>
+	<div class="header"><?php include "header.php"; ?></div>
 	<h1>Gestio</h1>
-	<input type="button" value="Inici" onclick="window.location.href='index.php'"" />
-	<!--<form method="POST" action="<?php //echo $_SERVER['PHP_SELF']; ?>">
-		<p>
-			<label for="id">Introdueix l'identificador</label>
-		</p>
-		<p>
-			<input type="text" maxlength="17" name="id" id="id"/>
-			<input type="submit" name="localitzar" id="localitzar" value="Localitzar"/>
-		</p>
-	</form>-->
+	<input type="button" value="Inici" onclick="window.location.href='./'"" />
 	<?php
 		//if (isset($_POST['localitzar'])) {
 		if ($_POST) {
@@ -109,6 +100,6 @@
 			<?php
 		}
 	?>
-	<div id="footer"><?php include "footer.php" ?></div>
+	<div id="footer"><?php include "footer.php"; ?></div>
 </body>
 </html>
