@@ -15,7 +15,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-$id = "74865783467834";
+$id = "74865787467834";
 $email = $_POST['email'];
 $sql = "INSERT INTO Reserva VALUES (".$id.", '".$matricula."','".$dia."','".$hora."',1,1,'turismo','".$email."')";
 
