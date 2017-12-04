@@ -10,20 +10,13 @@
 <meta charset="utf-8" />
 </head>
 <body>
-<<<<<<< HEAD
-    <div class="header"><?php include "header.php" ?></div>
-	<form>
-	<input type="button" value="Gestiona" onclick="window.location.href='gestio.php'"" />
-</form>
-=======
->>>>>>> 1e885e6b1dbafe1191252c4a8fe133ff521fa738
+    <?php include "header.php" ?>
 	<h1>Benvingut a IAMotors</h1>
 <form action="php/index_comprova.php" method="POST">
         Matricula:<input name="matricula" type="text" id="matricula" size="36" required="Tienes que rellenar este campo"><br />
         <input type="submit" id="submit" value="Enviar">
     </form>
 <?php
-<<<<<<< HEAD
 $matricula = $_POST['matricula'];
     if (isset($matricula))
     {
@@ -33,12 +26,9 @@ $matricula = $_POST['matricula'];
      }
 ?>
 <div id="footer"><?php include "footer.php" ?></div>
-=======
 
 
 
      ?>
-
->>>>>>> 1e885e6b1dbafe1191252c4a8fe133ff521fa738
 </body>
 </html>

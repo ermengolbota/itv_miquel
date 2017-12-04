@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<div class="header"><?php include "header.php" ?></div>
+<?php include "header.php" ?>
 <h1>Hores</h1>
 <div id="footer"><?php include "footer.php" ?></div>
 </body>

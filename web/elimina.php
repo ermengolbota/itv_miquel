@@ -11,7 +11,7 @@
 	<title>Confirmar eliminació</title>
 </head>
 <body>
-	<div class="header"><?php include "header.php"; ?></div>
+	<?php include "header.php"; ?>
 	<?php
 		if (isset($_POST["deleteEntry"])) {
 			?>
