@@ -63,7 +63,16 @@
        				 		}
 						}
 						?>
-						<td><a href="">img editar</a></td>
+						<td><!--<a href="">img editar</a>-->
+							<form method="POST" action="calendari.php" />
+								<input type="hidden" name="id" value="<?php echo $dades[4]; ?>" />
+								<input type="hidden" name="matricula" value="<?php echo $dades[0]; ?>" />
+								<input type="hidden" name="dia" value="<?php echo $dades[1]; ?>" />
+								<input type="hidden" name="hora" value="<?php echo $dades[2]; ?>" />
+								<input type="hidden" name="email" value="<?php echo $dades[3]; ?>" />
+								<input type="submit" name="editEntry" value="Edita" />
+							</form>
+						</td>
 						<td><!--<a href="">img eliminar</a>-->
 							<form method="POST" action="elimina.php" />
 								<input type="hidden" name="id" value="<?php echo $dades[4]; ?>" />
