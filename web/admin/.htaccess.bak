@@ -3,4 +3,3 @@ AuthType Basic
 AuthName "Àrea d'administració"
 AuthUserFile /usr/data-passwd/myitv/admin/.htpasswd
 Require valid-user
-
