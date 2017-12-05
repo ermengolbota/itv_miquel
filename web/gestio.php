@@ -3,6 +3,12 @@
 <head>
 	<?php
 	session_start();
+	echo session_id();
+	if($_SESSION['block'] == 1){
+		header("Location: block.php");
+	}else{
+	$_SESSION['block'] = 1;
+}
 	?>
 	<meta charset="utf-8" />
 	<!-- normalize css start -->

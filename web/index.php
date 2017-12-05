@@ -13,6 +13,7 @@
 	<?php
 session_start();
 $matricula = $_POST['matricula'];
+$_SESSION['block'] = 0;
     if (isset($matricula))
     {
     		

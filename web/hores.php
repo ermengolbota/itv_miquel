@@ -9,7 +9,13 @@
 </head>
 
 <body>
-	<?php session_start(); ?>
+	<?php session_start();
+	if($_SESSION['block'] == 1){
+		header("Location: block.php");
+	}else{
+	$_SESSION['block'] = 1;
+}
+	 ?>
 	<?php include "header.php" ?>
 	<h1>Hores</h1>
 	<?php 
