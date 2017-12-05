@@ -25,6 +25,7 @@ $('#matricula').css("background-color","#ff5050");
 
 }
 else {
+	error=0;
 	$('#matricula').css("background-color","white");
 
 }

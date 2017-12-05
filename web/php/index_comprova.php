@@ -1,7 +1,8 @@
 <?php
+ session_start();
 	$servername = "localhost";
 $username = "root";
-$password = "ausias";
+$password = "root";
 $dbname = "IAMotors";
 
 // Create connection
@@ -12,15 +13,21 @@ if ($conn->connect_error) {
 } 
 
 $matricula = $_POST['matricula'];
+ 
+$_SESSION['matricula']= $matricula;
+
 
 $q = "SELECT * FROM Reserva WHERE matricula = '".$matricula."';";
 $result = $conn->query($q);
 
 if ($result->num_rows > 0) {
-   header("Location: ../gestio.php"); 
+   header("Location: ../gestio.php");
+
     
 } else {
-    header("Location: ../calendari.php");
+   header("Location: ../calendari.php");
+    
+    
 }
 
 $conn->close();

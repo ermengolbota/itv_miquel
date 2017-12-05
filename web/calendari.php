@@ -11,6 +11,10 @@
 <title>IAMotors</title>
 </head>
 <body>
+  <?php
+  session_start();
+  $matricula = $_SESSION['matricula'];
+  ?>
   <div class="header"><?php include "header.php" ?></div>
 	<div class="container" style="width:100%">
   		<div class="row">
