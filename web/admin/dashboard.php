@@ -8,5 +8,10 @@
 	<script src="../lib/jquery.js"></script>
 	<title>Dashboard</title>
 <head>
-<h1>Escriptori_admin</h1>
+<body>
+	<?php include "../header.php"; ?>
+	<h1>Escriptori_admin</h1>
+	<p><a href="llista.php">lista</a></p>
+	<?php include "../footer.php"; ?>
+</body>
 </html>

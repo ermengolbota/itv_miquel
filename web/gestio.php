@@ -33,7 +33,7 @@
 			}
 			//$id = $_POST["id"];
 			if (validateMatricula($dades[0]) == 0) {
-				$sql = "SELECT matricula, dia, hora, mail, id FROM Reserva WHERE matricula LIKE '$dades[0]';";
+				$sql = "SELECT matricula, dia, hora, nom, cognom, tlf, mail, id FROM Reserva WHERE matricula LIKE '$dades[0]';";
 				//echo "<p>query: ".$sql."</p>";
 				//$sql = createSQL($id);
 				$result = $conn->query($sql);
@@ -45,6 +45,9 @@
 							<th>Matrícula</th>
 							<th>Dia</th>
 							<th>Hora</th>
+							<th>Nom</th>
+							<th>Cognom</th>
+							<th>Tlf.</th>
 							<th>Email</th>
 							<th>Editar</th>
 							<th>Eliminar</th>
@@ -53,9 +56,9 @@
    					 // output data of each row
     				while($row = $result->fetch_row()) {
     					echo "<tr>";
-						for ($i = 0; $i < 5; $i++) {
+						for ($i = 0; $i < 8; $i++) {
 							$dades[$i] = $row[$i];
-       				 		if ($i < 4) {
+       				 		if ($i < 7) {
        				 			echo "<td>" . $dades[$i] . "</td>";
        				 		}
 						}
