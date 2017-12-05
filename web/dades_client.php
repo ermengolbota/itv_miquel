@@ -16,15 +16,20 @@
 
 
 <body>
+	<?php session_start(); ?>
+
 	<?php include "header.php" ?>
 
 	<?php
-	if(!isset($matricula)){
+	/*if(!isset($matricula)){
 	$matricula = $_POST['new_matricula'];
 	}else
 	$matricula = "8756DSF";//$_POST['matricula'];
 	$dia = "2017-11-11";//$_POST['dia'];
-	$hora = "17:00:00";//$_POST['hora'];
+	$hora = "17:00:00";//$_POST['hora'];*/
+
+	$matricula = $_SESSION['matricula'];
+
 	?>
 	<table>
 		<tr>
