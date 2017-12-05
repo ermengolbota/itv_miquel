@@ -6,7 +6,7 @@
 
 	$servername = "localhost";
 $username = "root";
-$password = "ausias";
+$password = "root";
 $dbname = "IAMotors";
 
 // Create connection
@@ -15,17 +15,20 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-$id = "74865787467834";
+$id = "748657874327834";
 $email = $_POST['email'];
 $sql = "INSERT INTO Reserva VALUES (".$id.", '".$matricula."','".$dia."','".$hora."',1,1,'turismo','".$email."')";
 
-
+echo "<div id='retorna'>";
 if ($conn->query($sql) === TRUE) {
     echo "S'ha enregistrat la teva cita";
+    echo "<br><a href=../index.php>GO INDEX</a>";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "<br><a href=\"javascript:history.go(-1)\">GO BACK</a>";
+
 }
- 
+echo"</div>";
 $conn->close();
 
 	?>

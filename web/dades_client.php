@@ -30,7 +30,7 @@
 		<tr>
 			<div id="edit_matricula">
 						<form action="dades_client.php" method="POST">
-        <input name="new_matricula" type="text" id="matricula" value="Matricula" /><br />
+        <input name="new_matricula" type="text" id="new_matricula" value="Matricula" /><br />
         <input type="submit" id="edit_refresh" value="Edita">
     </form>
         </div>

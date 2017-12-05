@@ -10,13 +10,8 @@
 <meta charset="utf-8" />
 </head>
 <body>
-    <?php include "header.php" ?>
-	<h1>Benvingut a IAMotors</h1>
-<form action="php/index_comprova.php" method="POST">
-        Matricula:<input name="matricula" type="text" id="matricula" size="36" required="Tienes que rellenar este campo"><br />
-        <input type="submit" id="submit" value="Enviar">
-    </form>
-<?php
+	<?php
+session_start();
 $matricula = $_POST['matricula'];
     if (isset($matricula))
     {
@@ -25,10 +20,15 @@ $matricula = $_POST['matricula'];
         echo "<p style='color: red'>Tienes que rellenar la matricula";
      }
 ?>
+    <?php include "header.php" ?>
+	<h1>Benvingut a IAMotors</h1>
+<form action="php/index_comprova.php" method="POST">
+        Matricula:<input name="matricula" type="text" id="matricula" size="36" required="Tienes que rellenar este campo"><br />
+        <input type="submit" id="submit" value="Enviar">
+    </form>
+
 <div id="footer"><?php include "footer.php" ?></div>
 
 
-
-     ?>
 </body>
 </html>

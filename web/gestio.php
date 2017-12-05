@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<?php
+	session_start();
+	?>
 	<meta charset="utf-8" />
 	<!-- normalize css start -->
 	<link rel="stylesheet" href="lib/normalize.css">
@@ -12,8 +15,10 @@
 	<title>Gestio</title>
 </head>
 <body>
+
 	<?php include "header.php"; ?>
 	<h1>Gestio</h1>
+	<?php $matricula = $_SESSION['matricula'];?>
 	<input type="button" value="Inici" onclick="window.location.href='./'"" />
 	<?php
 		//if (isset($_POST['localitzar'])) {
