@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
- <html class="">
+ <html>
  <head>
  <link rel="stylesheet" href="css/myitvdesign.css">
  <link rel="stylesheet" href="lib/normalize.css">

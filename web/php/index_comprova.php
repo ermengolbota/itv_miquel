@@ -1,13 +1,9 @@
 <?php
  session_start();
- 
-	$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "IAMotors";
+ require_once 'config.php';
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($db_servername, $db_username, $db_password, $db_dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
