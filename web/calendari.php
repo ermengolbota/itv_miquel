@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
  <html>
 <head>
  <link rel="stylesheet" href="lib/normalize.css">
@@ -11,7 +10,8 @@
 <title>IAMotors</title>
 </head>
 <body>
-  <div class="header"><?php include "header.php"; ?></div>
+  <?php session_start(); ?>
+  <?php include "header.php"; ?>
 	<div class="container" style="width:100%;">
   		<div class="row">
     		<div class="three columns"><p></p></div>
@@ -47,7 +47,7 @@
     		<div class="three columns"></div>
   		</div>
   	</div>
-    <div id="footer"><?php include "footer.php" ?></div>
+    <?php include "footer.php" ?>
     <?php
       if($_POST){
         $id = $_POST['id'];
@@ -56,6 +56,8 @@
         $hora = $_POST['hora'];
         $email = $_POST['email'];
         echo $id.' '.$matricula.' '.$dia.' '.$hora.' '.$email;
+        $_SESSION['hora'] = $hora;
+        $_SESSION['matricula'] = $matricula;
       }
     ?>
 </body>
