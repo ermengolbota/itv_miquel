@@ -55,7 +55,7 @@
        				 		}
 						}
 						?>
-						<td><!--<a href="">img editar</a>-->
+						<td>
 							<form method="POST" action="calendari.php" />
 								<input type="hidden" name="id" value="<?php echo $dades[4]; ?>" />
 								<input type="hidden" name="matricula" value="<?php echo $dades[0]; ?>" />
@@ -65,7 +65,7 @@
 								<input type="submit" name="editEntry" value="Edita" />
 							</form>
 						</td>
-						<td><!--<a href="">img eliminar</a>-->
+						<td>
 							<form method="POST" action="elimina.php" />
 								<input type="hidden" name="id" value="<?php echo $dades[4]; ?>" />
 								<input type="hidden" name="matricula" value="<?php echo $dades[0]; ?>" />
@@ -100,6 +100,6 @@
 			<?php
 		}
 	?>
-	<div id="footer"><?php include "footer.php"; ?></div>
+	<?php include "footer.php"; ?>
 </body>
 </html>
