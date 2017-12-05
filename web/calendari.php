@@ -12,6 +12,12 @@
 <body>
   <?php
   session_start();
+  
+  if($_SESSION['block'] == 1){
+    header("Location: block.php");
+  }else{
+  $_SESSION['block'] = 1;
+}
   $matricula = $_SESSION['matricula'];
   ?>
   <?php include "header.php"; ?>
