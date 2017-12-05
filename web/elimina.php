@@ -40,6 +40,6 @@
 			}
 		}
 	?>
-	<div id="footer"><?php include "footer.php"; ?></div>
+	<?php include "footer.php"; ?>
 </body>
 </html>

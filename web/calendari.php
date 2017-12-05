@@ -11,32 +11,38 @@
 <title>IAMotors</title>
 </head>
 <body>
+
   <?php
   session_start();
   $matricula = $_SESSION['matricula'];
   ?>
   <div class="header"><?php include "header.php" ?></div>
 	<div class="container" style="width:100%">
+
+  <div class="header"><?php include "header.php"; ?></div>
+	<div class="container" style="width:100%;">
+
   		<div class="row">
     		<div class="three columns"><p></p></div>
     		<div class="six columns">
           <div id="calendari"></div>
           <?php 
-          if($_POST['dia']){ 
-            $day = substr($_POST['dia'],8,9);
-            $month = substr($_POST['dia'],6,-2);
-            $year = substr($_POST['dia'],0,4);
+          if($_POST['dia']){
+            $date = $_POST['dia'];
+            $day = substr($date,8,9);
+            $month = substr($date,5,-3);
+            $year = substr($date,0,4);
           } else {
             $day = date("d");
             $month = date("m");
             $year = date("Y");
           }
-          
-           ?>
+
+          ?>
     			<script language="javascript">
-            var dd = <?php echo $day ?>;
-            var mm = <?php echo $month ?>;
-            var yyyy = <?php echo $year ?>;
+            var dd = <?php echo $day; ?>;
+            var mm = <?php echo $month; ?>;
+            var yyyy = <?php echo $year; ?>;
 
             var datos = {
               dia : dd,
