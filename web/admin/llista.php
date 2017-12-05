@@ -13,6 +13,18 @@
 <body>
 	<?php include "../header.php"; ?>
 	<h1>Llista cites</h1>
+	<table id="<?php echo date('Y-m-d'); ?>" border=1>
+		<tr>
+			<th>Hora</th>
+			<th>Carril</th>
+			<th>Matricula</th>
+			<th>Nom</th>
+			<th>Cognom</th>
+			<th>Tlf.</th>
+			<th>Email</th>
+		</tr>
+	</table>
 	<?php include "../footer.php"; ?>
+	<script src="functions.js"></script>
 </body>
 </html>
