@@ -119,11 +119,8 @@
 					<input type="submit" name="localitzar" id="localitzar" value="Localitzar"/>
 				</p>
 			</form>*/
-			header('Location: ../');
+			header('Location: ./');
 		}
-		/*if ($_SESSION["matricula"]) {
-			echo $_SESSION["matricula"];
-		}*/
 	?>
 	<?php include "footer.php"; ?>
 </body>

@@ -13,18 +13,39 @@
 <body>
 	<?php include "../header.php"; ?>
 	<h1>Llista cites</h1>
-	<table id="<?php echo date('Y-m-d'); ?>" border=1>
-		<tr>
-			<th>Hora</th>
-			<th>Carril</th>
-			<th>Matricula</th>
-			<th>Nom</th>
-			<th>Cognom</th>
-			<th>Tlf.</th>
-			<th>Email</th>
-		</tr>
+	<?php
+		$dia = date('Y-m-d');
+		if ($_GET["dia"]) {
+			$dia = $_GET["dia"];
+		}
+		echo $dia;
+	?>
+	<table id="<?php echo $dia; ?>" border=1>
 	</table>
 	<?php include "../footer.php"; ?>
+	<?php
+		require_once "../php/config.php";
+		$conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+		if ($conn->connect_error) {
+    		die("Connection failed: " . $conn->connect_error);
+		}
+		$sql = "SELECT hora, num_carril, matricula, nom, cognom, tlf, mail FROM Reserva WHERE dia = '$dia' ORDER BY hora, num_carril ASC;";
+		$result = $conn->query($sql);
+		$array[0][0] = "";
+		if ($result-> num_rows > 0) {
+			$i = 0;
+			while ($row = $result->fetch_row()) {
+				for ($j = 0; $j > 8; $j++) { 
+					$array[$i][$j] = $row[$j];
+				}
+				$i++;
+			}
+		}
+		$conn->close();
+	?>
 	<script src="functions.js"></script>
+	<script type="text/javascript">
+		Llista.init(<?php $array; ?>);
+	</script>
 </body>
 </html>
