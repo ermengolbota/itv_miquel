@@ -27,7 +27,7 @@
 		} 
 	
 	?>
-	<?php include "header.php" ?>
+	
 	<?php 
 
 	/*if($_SESSION['hora']){
@@ -40,20 +40,21 @@
 
 	?>
 	<div class="row">
-    		<div class="three columns"><p></p></div>
-    		<div class="six columns">
+    		<div class="two columns"><p></p></div>
+    		<div class="eight columns">
+    			<?php include "header.php" ?>
     			<?php echo "<h1>".$day."/".$month."/".$year."</h1>"; ?>
     			<div id="taulaHores"></div>
     			<script language="javascript">
     				$('#taulaHores').html(TableHora.crea());
     				TableHora.hora();
     			</script>
-    			
+    			<?php include "footer.php" ?>
     		</div>
-    		<div class="three columns"></div>
+    		<div class="two columns"></div>
   	</div>
 
-	<?php include "footer.php" ?>
+	
 	<?php
 		$conn->close();
 	?>

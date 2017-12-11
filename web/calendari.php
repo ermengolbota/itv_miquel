@@ -20,12 +20,12 @@
   }*/
   $matricula = $_SESSION['matricula'];
   ?>
-  <?php include "header.php"; ?>
 	<div class="container" style="width:100%;">
 
   		<div class="row">
-    		<div class="three columns"><p></p></div>
-    		<div class="six columns">
+    		<div class="two columns"><p></p></div>
+    		<div class="eight columns">
+          <?php include "header.php"; ?>
           <div id="calendari"></div>
           <?php 
           if($_POST['dia']){
@@ -53,10 +53,10 @@
             $('#calendari').html(Calendar.imprimir(datos));
             Calendar.getDataDay(datos);
           </script>
+          <?php include "footer.php" ?>
     		</div>
-    		<div class="three columns"></div>
+    		<div class="two columns"></div>
   		</div>
   	</div>
-    <?php include "footer.php" ?>
 </body>
 </html>
