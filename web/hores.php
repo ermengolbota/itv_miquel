@@ -36,6 +36,7 @@
 	$day = $_GET['day'];
 	$month = $_GET['month'];
 	$year = $_GET['year'];
+	$_SESSION['dia'] = $year."-".$month."-".$day;
 
 	?>
 	<div class="row">

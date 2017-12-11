@@ -166,7 +166,7 @@ var Calendar = (function() {
 			var day = $(this).html();
 			var month = datos.mes || 1;
 			var year = datos.any || 2017;
-			url = "http://localhost/myitv/web/hores.php?day=" + day + "&month=" + month + "&year=" + year;
+			url = "./hores.php?day=" + day + "&month=" + month + "&year=" + year;
 			window.location.replace(url);
 		});
 	};
