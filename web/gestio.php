@@ -110,8 +110,7 @@
 				$conn->close();
 			}
 		} else{ //DEBUG FORM 
-			?>
-			<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+			/*<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 				<p>
 					<label for="matricula">DEBUG matricula</label>
 				</p>
@@ -119,8 +118,8 @@
 					<input type="text" maxlength="7" name="matricula" id="matricula"/>
 					<input type="submit" name="localitzar" id="localitzar" value="Localitzar"/>
 				</p>
-			</form>
-			<?php
+			</form>*/
+			header('Location: ../');
 		}
 		/*if ($_SESSION["matricula"]) {
 			echo $_SESSION["matricula"];
