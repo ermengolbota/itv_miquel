@@ -164,11 +164,8 @@ var Calendar = (function() {
 	var getDataDay = function(datos){
 		$('table').on('click','.nowMonth',function(){
 			var day = $(this).html();
-			console.log(day);
 			var month = datos.mes || 1;
 			var year = datos.any || 2017;
-			console.log(month);
-			console.log(year);
 			url = "http://localhost/myitv/web/hores.php?day=" + day + "&month=" + month + "&year=" + year;
 			window.location.replace(url);
 		});

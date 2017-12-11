@@ -5,6 +5,7 @@
  <link rel="stylesheet" href="lib/normalize.css">
  <link rel="stylesheet" href="lib/skeleton.css">
  <script src="lib/jquery.js"></script>
+ <script type="text/javascript" language="javascript" src="js/functionsHores.js"></script>
 <meta charset="utf-8" />
 </head>
 
@@ -12,10 +13,10 @@
 	<?php 
 	session_start();
 
-	if($_SESSION['block'] == 1){
+	/*if($_SESSION['block'] == 1){
 		header("Location: block.php");
 	}else{
-	$_SESSION['block'] = 1;
+	$_SESSION['block'] = 1;*/
 
 	require_once 'php/horesFunctions.php';
 	require_once 'php/config.php';
@@ -35,15 +36,18 @@
 	$day = $_GET['day'];
 	$month = $_GET['month'];
 	$year = $_GET['year'];
-	echo "<h1>".$day."/".$month."/".$year."</h1>";
 
 	?>
 	<div class="row">
     		<div class="three columns"><p></p></div>
     		<div class="six columns">
-    			<?php
-    			createTable();
-    			?>
+    			<?php echo "<h1>".$day."/".$month."/".$year."</h1>"; ?>
+    			<div id="taulaHores"></div>
+    			<script language="javascript">
+    				$('#taulaHores').html(TableHora.crea());
+    				TableHora.hora();
+    			</script>
+    			
     		</div>
     		<div class="three columns"></div>
   	</div>
