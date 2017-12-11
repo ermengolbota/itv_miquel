@@ -1,10 +1,15 @@
 <?php 
+session_start();
+	$matricula = $_SESSION['matricula'];
+	$dia = $_SESSION['dia'];
+	$hora = $_SESSION['hours'];
+	$nom= $_POST['nom_propietari'];
+	$cognom= $_POST['cognom_propietari'];
+	$telefon= $_POST['telefon'];
+	$email = $_POST['email'];
 
-	$matricula = "8756DSF";//$_POST['matricula'];
-	$dia = "2017-11-11";//$_POST['dia'];
-	$hora = "17:00:00";//$_POST['hora'];
 
-	$servername = "localhost";
+$servername = "localhost";
 $username = "root";
 $password = "root";
 $dbname = "IAMotors";
@@ -15,13 +20,14 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-$id = "748657874327834";
-$email = $_POST['email'];
-$sql = "INSERT INTO Reserva VALUES (".$id.", '".$matricula."','".$dia."','".$hora."',1,1,'turismo','".$email."')";
+$id = time().''.$matricula;
+
+$sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',1,1,'turismo','".$nom."','".$cognom."','".$telefon."','".$email."')";
 
 echo "<div id='retorna'>";
 if ($conn->query($sql) === TRUE) {
     echo "S'ha enregistrat la teva cita";
+    echo $matricula;
     echo "<br><a href=../index.php>GO INDEX</a>";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

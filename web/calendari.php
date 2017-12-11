@@ -12,11 +12,12 @@
 <body>
   <?php
   session_start();
-  if($_SESSION['block'] == 1){
+  
+  /*if($_SESSION['block'] == 1){
     header("Location: block.php");
   }else{
   $_SESSION['block'] = 1;
-}
+  }*/
   $matricula = $_SESSION['matricula'];
   ?>
   <?php include "header.php"; ?>
@@ -57,17 +58,5 @@
   		</div>
   	</div>
     <?php include "footer.php" ?>
-    <?php
-      if($_POST){
-        $id = $_POST['id'];
-        $matricula = $_POST['matricula'];
-        $dia = $_POST['dia'];
-        $hora = $_POST['hora'];
-        $email = $_POST['email'];
-        echo $id.' '.$matricula.' '.$dia.' '.$hora.' '.$email;
-        $_SESSION['hora'] = $hora;
-        $_SESSION['matricula'] = $matricula;
-      }
-    ?>
 </body>
 </html>

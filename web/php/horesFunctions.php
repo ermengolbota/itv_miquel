@@ -4,23 +4,29 @@
  //numero de carrils
  $carrils = 2;
 
- function createTable(){
- 	echo "<table><tr>";
- 	/*
+ /*function createTable(){
+ 	echo "<table>";
  	$hora = 0;
  	$h = 8;
- 	$m = 0;
+ 	$m = 00;
  	$hores = 24;
  	while($hora<$hores){
- 		if(!$hora%2){
-
+ 		echo "<tr>";
+ 		if($hora%2 != 0){
+			$m = 30;
+			echo "<td>".$h.":".$m."</td>";
+			$h++;
+			$hora++;
+ 		} else {
+			$m = 00;
+ 			echo "<td>".$h.":".str_pad($m, 2, '0', STR_PAD_RIGHT)."</td>";
+ 			$hora++;
  		}
- 		echo "<td>".$h.":".$m."</td>";
- 		$hora++;
+ 		echo "</tr>";
  	}
-	*/
- 	echo "</tr></table>";
- }
+	
+ 	echo "</table>";
+ }*/
 
  function isFull($day,$month,$year,$hora){
  	$date = $year."-".$month."-".$day;
