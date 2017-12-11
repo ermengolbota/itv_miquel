@@ -19,6 +19,9 @@
 			<p>Matricula: <?php echo $_POST["matricula"]; ?></p>
 			<p>Dia: <?php echo $_POST["dia"]; ?></p>
 			<p>Hora: <?php echo $_POST["hora"]; ?></p>
+			<p>Nom: <?php echo $_POST["nom"]; ?></p>
+			<p>Cognom: <?php echo $_POST["cognom"]; ?></p>
+			<p>Tlf.: <?php echo $_POST["tlf"]; ?></p>
 			<p>Email: <?php echo $_POST["email"]; ?></p>
 			<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" />
 				<input type="hidden" name="id" value="<?php echo $_POST["id"]; ?>" />
