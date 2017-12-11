@@ -16,7 +16,9 @@
 
 
 <body>
-	<?php session_start(); 
+	<?php session_start();
+	$_SESSION['val_matricula'] = 0; 
+	$_SESSION['val_matricula']++;
 	/*if($_SESSION['block'] < 1){
 		header("Location: block.php");
 	}else{
@@ -27,15 +29,17 @@
 	<?php include "header.php" ?>
 
 	<?php
-
-	$matricula = $_POST['new_matricula'];
+	if($_SESSION['val_matricula']==0){
+		$_SESSION['val_matricula']++;
+	}else
+	$_SESSION['matricula'] = $_POST['matricula'];
 
 	?>
 	<table>
 		<tr>
 			<div id="edit_matricula">
 						<form action="dades_client.php" method="POST">
-        <input name="new_matricula" type="text" id="new_matricula" value="Matricula" /><br />
+        <input name="matricula" type="text" id="new_matricula" placeholder="Matricula" /><br />
         <input type="submit" id="edit_refresh" value="Edita">
     </form>
         </div>
@@ -44,13 +48,14 @@
 					
         <p id="old_matricula">
         <?php
-        echo $matricula;
+        echo $_SESSION['matricula'];
         ?>
         <input type="button" name="edit" id="edit" value="Edita">
         </p>
-        <input name="nom_propietari" type="text" id="matricula" value="Nom Propietari" /><br />
-         <input name="email" type="email" id="email" value="email" /><br />
-
+        <input name="nom_propietari" type="text" id="nom_propietari" placeholder="Nom Propietari" /><br />
+        <input name="cognom_propietari" type="text" id="cognom_propietari" placeholder="Cognom Propietari" /><br />
+           <input name="telefon" type="text" id="telefon" placeholder="Telefon" /><br />
+         <input name="email" type="email" id="email" placeholder="email" /><br />
         <input type="submit" id="submit" value="Enviar">
     </form>
 			</td>

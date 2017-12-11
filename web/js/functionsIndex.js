@@ -15,7 +15,7 @@ var error=0;
 
 		}else{
 
-var pattern = /^[A-Z]{0,2}\d\d\d\d[A-Z]{2,3}$/ ;
+var pattern = /^\d\d\d\d[[BCDFGHJKLMNPRSTVWXYZ]]{3}$/ ;
 
 if (!pattern.test($('#matricula').val())) {
 

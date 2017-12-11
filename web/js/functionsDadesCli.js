@@ -7,7 +7,7 @@ $('#new_matricula').on("focusout",function () {
 
 		}else{
 
-var pattern = /^[A-Z]{0,2}\d\d\d\d[BCDFGHJKLMNPRSTVWXYZ]{2,3}$/ ;
+var pattern = /^\d\d\d\d[BCDFGHJKLMNPRSTVWXYZ]{3}$/ ;
 
 if (!pattern.test($('#new_matricula').val())) {
 
