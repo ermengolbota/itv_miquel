@@ -13,7 +13,7 @@
 	}*/
 
 
-	function validateMatricula(&$string){
+	function validateMatricula(&$string) {
 		if (!empty($string) && is_string($string) && strlen($string)==7) {
 			htmlspecialchars(stripcslashes(trim($string)));
 			return 0;

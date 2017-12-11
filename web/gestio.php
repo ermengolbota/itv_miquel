@@ -4,11 +4,11 @@
 	<?php
 	session_start();
 	echo session_id();
-	if($_SESSION['block'] == 1){
+	/*if($_SESSION['block'] == 1){
 		header("Location: block.php");
-	}else{
-	$_SESSION['block'] = 1;
-}
+	} else{
+		$_SESSION['block'] = 1;
+	}*/
 	?>
 	<meta charset="utf-8" />
 	<!-- normalize css start -->
@@ -25,13 +25,14 @@
 	<?php include "header.php"; ?>
 	<h1>Gestio</h1>
 	<?php $matricula = $_SESSION['matricula'];?>
-	<input type="button" value="Inici" onclick="window.location.href='./'"" />
+	<input type="button" value="Inici" onclick="window.location.href='./'" />
 	<?php
 		//if (isset($_POST['localitzar'])) {
-		if ($_POST) {
+		//if ($_POST) {
+		if ($_SESSION["matricula"]) {
 			require_once 'php/config.php';
 			require_once 'php/gestioFunctions.php';
-			$dades[0] = $_POST["matricula"];
+			$dades[0] = $_SESSION["matricula"];
 			$conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
 			//$conn = connect($db_hostname, $db_username, $db_password, $db_database);
 			if ($conn->connect_error) {
@@ -70,12 +71,16 @@
 						}
 						?>
 						<td>
-							<form method="POST" action="calendari.php" />
+							<form method="POST" action="php/gestioEdita.php" />
 								<input type="hidden" name="id" value="<?php echo $dades[4]; ?>" />
 								<input type="hidden" name="matricula" value="<?php echo $dades[0]; ?>" />
 								<input type="hidden" name="dia" value="<?php echo $dades[1]; ?>" />
 								<input type="hidden" name="hora" value="<?php echo $dades[2]; ?>" />
-								<input type="hidden" name="email" value="<?php echo $dades[3]; ?>" />
+								<input type="hidden" name="nom" value="<?php echo $dades[3]; ?>" />
+								<input type="hidden" name="cognom" value="<?php echo $dades[4]; ?>" />
+								<input type="hidden" name="tlf" value="<?php echo $dades[5]; ?>" />
+								<input type="hidden" name="email" value="<?php echo $dades[6]; ?>" />
+								<input type="hidden" name="id" value="<?php echo $dades[7]; ?>" />
 								<input type="submit" name="editEntry" value="Edita" />
 							</form>
 						</td>
@@ -85,7 +90,11 @@
 								<input type="hidden" name="matricula" value="<?php echo $dades[0]; ?>" />
 								<input type="hidden" name="dia" value="<?php echo $dades[1]; ?>" />
 								<input type="hidden" name="hora" value="<?php echo $dades[2]; ?>" />
-								<input type="hidden" name="email" value="<?php echo $dades[3]; ?>" />
+								<input type="hidden" name="nom" value="<?php echo $dades[3]; ?>" />
+								<input type="hidden" name="cognom" value="<?php echo $dades[4]; ?>" />
+								<input type="hidden" name="tlf" value="<?php echo $dades[5]; ?>" />
+								<input type="hidden" name="email" value="<?php echo $dades[6]; ?>" />
+								<input type="hidden" name="id" value="<?php echo $dades[7]; ?>" />
 								<input type="submit" name="deleteEntry" value="Elimina" />
 							</form>
 						</td>
@@ -113,6 +122,9 @@
 			</form>
 			<?php
 		}
+		/*if ($_SESSION["matricula"]) {
+			echo $_SESSION["matricula"];
+		}*/
 	?>
 	<?php include "footer.php"; ?>
 </body>
