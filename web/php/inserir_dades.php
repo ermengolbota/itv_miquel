@@ -1,8 +1,8 @@
 <?php 
 session_start();
 	$matricula = $_SESSION['matricula'];
-	$dia = "2017-11-11";//$_POST['dia'];
-	$hora = "17:00:00";//$_POST['hora'];
+	$dia = $_SESSION['dia'];
+	$hora = $_SESSION['hours'];
 	$nom= $_POST['nom_propietari'];
 	$cognom= $_POST['cognom_propietari'];
 	$telefon= $_POST['telefon'];

@@ -31,15 +31,8 @@ $("#edit_refresh").click(function(event){
      }
  });
 
-//Boto de submit
-/*$("#submit").click(function(event){
-	if(error==1){
-    event.preventDefault();
-    alert("Corrige la matricula");
-     }
- });*/
 
-$('#email').focusout(function () {
+/*$('#email').focusout(function () {
 var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 if (!pattern.test($('#email').val())) {
@@ -50,7 +43,7 @@ $('#email').css("background-color","red");
 	$('#email').css("background-color","white");
 	error=0;
 }
-});
+});*/
 
 $("#edit").click(function(){
 $('#old_matricula').hide();
