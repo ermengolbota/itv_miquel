@@ -22,7 +22,22 @@ if ($conn->connect_error) {
 } 
 $id = time().''.$matricula;
 
+$result = mysql_query("SELECT * FROM Reserva WHERE dia= '" .
+mysql_real_escape_string($dia). "'AND hora='" .
+mysql_real_escape_string($hora). "';");
+
+//$num_rows = mysql_num_rows($comprovar);
+
+
+
+if($rowcount == 0){
+
 $sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',1,1,'turismo','".$nom."','".$cognom."','".$telefon."','".$email."')";
+}elseif ($rowcount == 1){
+	
+
+$sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',2,1,'turismo','".$nom."','".$cognom."','".$telefon."','".$email."')";
+}
 
 echo "<div id='retorna'>";
 if ($conn->query($sql) === TRUE) {

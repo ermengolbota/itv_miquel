@@ -1,23 +1,21 @@
 <?php
-	//require 'config.php';
-	/*function connect($db_hostname, $db_username, $db_password, $db_database){
-		return new mysqli($db_hostname, $db_username, $db_password, $db_database);
-	}
-	function createSQL($id){
-		$sql = "SELECT matricula, dia, hora, mail FROM Reserva WHERE id LIKE '$id';"
-		echo "<p>query: ".$sql."</p>";
-		return $sql;
-	}
-	function getResult($conn, $sql){
-		return $conn->query($sql);
-	}*/
-
-
 	function validateMatricula(&$string) {
 		if (!empty($string) && is_string($string) && strlen($string)==7) {
+			// si la matricula cumpleix els requeriments, la edita per evitar atacs XSS i retorn 0
 			htmlspecialchars(stripcslashes(trim($string)));
 			return 0;
 		}
+		// si la matricula no compleix d'alguna manera els requeriments no fa res i retorna 1
 		return 1;
+	}
+
+	function createSQL($matricula) {
+		// retorna la consulta SQL per la matricula
+		return "SELECT matricula, dia, hora, nom, cognom, tlf, mail, id FROM Reserva WHERE matricula LIKE '$matricula';";
+	}
+	
+	function getResult($conn, $sql) {
+		// retorna el resultat de la consulta
+		return $conn->query($sql);
 	}
 ?>
