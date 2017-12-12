@@ -1,23 +1,10 @@
 var Llista = (function(){
-	var day = "YYYY-mm-dd";
 	var openningHour = 8;
 	var closeingHour = 20;
 	var select = "";
 	var model = {
 		init : function(array) {
-			/*var date = new Date();
-			var d = date.getDay();
-			var m = date.getMonth()+1;
-			var y = date.getFullYear();
-			day = y + "-" + m + "-" + d;*/
 			select = array;
-			//day = dia;
-		},
-		setDay : function(newDay){
-			day = newDay;
-		},
-		getDay : function(){
-			return day;
 		},
 		getOpenningHour : function(){
 			return openningHour;
@@ -33,12 +20,6 @@ var Llista = (function(){
 		init : function(array){
 			model.init(array);
 			view.init();
-		},
-		setDay : function(newDay){
-			model.setDay(newDay);
-		},
-		getDay : function(){
-			return model.getDay();
 		},
 		getOpenningHour : function(){
 			return model.getOpenningHour();
@@ -61,21 +42,21 @@ var Llista = (function(){
 			var aux = 0;
 			var carril = 1;
 			var minute = "00";
+			var i = 0;
 			var array = controller.getSelect();
-			console.log(array[0][0]);
 			while(stopH != h){
 				str += "<tr hora='" + h + ":" + minute + ":00' carril='" + carril + "'>";
 				str += "<td>"+ h + ":" + minute + "</td>";
 				str += "<td>" + carril + "</td>";
-				for (var i = 0; i < array.length; i++) {
-					var horaActual = h + ":" + minute + ":00";
-					if (array[i][0] == horaActual && array[i][1] == carril) {
-						for (var j = 3; i < array[i].length; i++) {
-							str += "<td>" + array[i][j] + "</td>";
-						}
-					} else {
-						str += "<td colspan='5'>placeholder text</td>";
+				var horaActual = h + ":" + minute + ":00";
+				var writen = false;
+				if (array[i][0] == horaActual && array[i][1] == carril) {
+					for (var j = 2; j < 7; j++) {
+						str += "<td>" + array[i][j] + "</td>";
+						writen = true;
 					}
+				} else {
+					str += "<td colspan='5'>Lliure</td>";
 				}
 				str += "</tr>";
 				if (carril == 1) {
@@ -92,11 +73,13 @@ var Llista = (function(){
 					h++;
 					aux = 0;
 				}
+				if (writen) {
+					i++;
+				}
 			}
 			$("table").html(str);
 		}
 	};
-	//controller.init();
 	return {
 		init : controller.init
 	};
