@@ -11,15 +11,13 @@
 </head>
 <body>
 	<?php
-session_start();
-$matricula = $_POST['matricula'];
-$_SESSION['block'] = 0;
-    if (isset($matricula))
-    {
-    		
-    if ($matricula == "")
-        echo "<p style='color: red'>Tienes que rellenar la matricula";
-     }
+    session_start();
+    $matricula = $_POST['matricula'];
+    $_SESSION['block'] = 0;
+        if (isset($matricula)){
+            if ($matricula == "")
+                echo "<p style='color: red'>Tienes que rellenar la matricula";
+        }
 ?>
 <div class="row">
     <div class="two columns"><p></p></div>
