@@ -11,8 +11,6 @@
 	<title>Llistat de cites</title>
 </head>
 <body>
-	<?php include "../header.php"; ?>
-	<h1>Llista cites</h1>
 	<?php
 		require_once "functions.php";
 		require_once "../php/config.php";
@@ -21,20 +19,26 @@
 			$dia = $_GET["dia"];
 		}
 	?>
-	<nav>
-		<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-			<input type="hidden" name="dia" value="<?php calcPrevDay($dia); ?>" />
-			<input type="submit" value="<-" />
-		</form>
-		<?php echo $dia; ?>
-		<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-			<input type="hidden" name="dia" value="<?php calcNextDay($dia); ?>" />
-			<input type="submit" value="->" />
-		</form>
-	</nav>
-	<table id="<?php echo $dia; ?>" border=1>
-	</table>
-	<?php include "../footer.php"; ?>
+	<div class="row">
+		<div class="two columns">
+			<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+				<input type="hidden" name="dia" value="<?php calcPrevDay($dia); ?>" />
+				<input type="submit" value="<-" />
+			</form>
+		</div>
+		<div class="eight columns">
+			<?php include "../header.php"; ?>
+			<h1>Llista cites del dia <?php echo $dia; ?></h1>
+			<table id="<?php echo $dia; ?>" border=1></table>
+			<?php include "../footer.php"; ?>
+		</div>
+		<div class="two columns">
+			<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+				<input type="hidden" name="dia" value="<?php calcNextDay($dia); ?>" />
+				<input type="submit" value="->" />
+			</form>
+		</div>
+	</div>
 	<?php
 		$conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
 		if ($conn->connect_error) {

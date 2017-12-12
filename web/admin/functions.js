@@ -50,7 +50,7 @@ var Llista = (function(){
 				str += "<td>" + carril + "</td>";
 				var horaActual = h + ":" + minute + ":00";
 				var writen = false;
-				if (array[i][0] == horaActual && array[i][1] == carril) {
+				if (i < array.length && array[i][0] == horaActual && array[i][1] == carril) {
 					for (var j = 2; j < 7; j++) {
 						str += "<td>" + array[i][j] + "</td>";
 						writen = true;
