@@ -9,6 +9,17 @@
  <script src="js/functionsIndex.js"></script>
 <meta charset="utf-8" />
 </head>
+<script type="text/javascript">
+$(document).ready(function(){ 
+initControls();
+});
+
+function initControls(){
+window.location.hash="red";
+window.location.hash="Red" //chrome
+window.onhashchange=function(){window.location.hash="red";}
+}
+</script>
 <body>
 	<?php
     session_start();
