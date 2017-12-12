@@ -37,14 +37,16 @@
 	$month = $_GET['month'];
 	$year = $_GET['year'];
 	$_SESSION['dia'] = $year."-".$month."-".$day;
+	$matricula = $_SESSION['matricula'];
+  		$_SESSION['val_matricula'] = 0;
 
 	?>
 	<div class="row">
     		<div class="two columns"><p></p></div>
-    		<div class="eight columns">
+    		<div class="eight columns" style="align-content: center;">
     			<?php include "header.php" ?>
     			<?php echo "<h1>".$day."/".$month."/".$year."</h1>"; ?>
-    			<div id="taulaHores"></div>
+    			<div id="taulaHores" >
     			<script language="javascript">
     				$('#taulaHores').html(TableHora.crea());
     				TableHora.hora();

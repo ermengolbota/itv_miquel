@@ -17,9 +17,9 @@
 
 <body>
 	<?php session_start();
-	$_SESSION['val_matricula'] = 0; 
-	$_SESSION['val_matricula']++;
-	$_SESSION['hours'] = $_GET['hours'];
+ 
+	
+
 	/*if($_SESSION['block'] < 1){
 		header("Location: block.php");
 	}else{
@@ -31,9 +31,12 @@
 
 	<?php
 	if($_SESSION['val_matricula']==0){
-		$matricula = $_SESSION['matricula'];
+			$matricula = $_SESSION['matricula'];
+		$_SESSION['val_matricula']++;
+		$_SESSION['hour'] = $_GET['hour'];
 	}else
 	$_SESSION['matricula'] = $_POST['matricula'];
+	
 
 	?>
 	<table>
@@ -49,6 +52,7 @@
 					
         <p id="old_matricula">
         <?php
+        
         echo $_SESSION['matricula'];
         ?>
         <input type="button" name="edit" id="edit" value="Edita">
