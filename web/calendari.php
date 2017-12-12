@@ -19,13 +19,14 @@
   $_SESSION['block'] = 1;
   }*/
   $matricula = $_SESSION['matricula'];
+ 
   ?>
 	<div class="container" style="width:100%;">
 
   		<div class="row">
     		<div class="two columns"><p></p></div>
     		<div class="eight columns">
-          <?php include "header.php"; ?>
+          <?php //include "header.php"; ?>
           <div id="calendari"></div>
           <?php 
           if($_POST['dia']){
@@ -53,7 +54,7 @@
             $('#calendari').html(Calendar.imprimir(datos));
             Calendar.getDataDay(datos);
           </script>
-          <?php include "footer.php" ?>
+          <?php //include "footer.php" ?>
     		</div>
     		<div class="two columns"></div>
   		</div>

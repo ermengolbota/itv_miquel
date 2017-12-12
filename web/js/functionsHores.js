@@ -13,8 +13,14 @@ var TableHora = (function() {
 			window.location.replace(url);
 		});
 	}
+	
+		
+
+
+	
 
 	var creaTaula = function(){
+
 		var str = "<table>";
 		// comptador de tds que hi haurà a la taula
 		var hora = 0;
@@ -24,9 +30,11 @@ var TableHora = (function() {
 		var m = pad(0,2);
 		//la quantitat de hores escrites en la taula
 		var hores = 24;
-
+		var i,j;
  		while(hora<hores){
+ 			for(i=0;i<4;i++){
 	 		str += "<tr>";
+	 		for(j=0;j<6;j++){
 	 		if(hora%2 != 0){
 				m = 30;
 				str += "<td>"+h+":"+m+"</td>";
@@ -38,9 +46,12 @@ var TableHora = (function() {
 	 			str += "<td>"+h+":"+m+"</td>";
 	 			hora++;
 	 		}
+	 	}
 	 		str += "</tr>";
 	 	}
+	 }
 	 	str += "</table>";
+	 
 
 	 	return str;
 	};
@@ -51,3 +62,11 @@ var TableHora = (function() {
 	};
 
 }());
+
+$(document).ready(function(){
+    $("td").hover(function(){
+        $(this).css("background-color", "#FF9B21");
+        }, function(){
+        $(this).css("background-color", "white");
+    });
+});
