@@ -13,11 +13,6 @@ var TableHora = (function() {
 			window.location.replace(url);
 		});
 	}
-	
-		
-
-
-	
 
 	var creaTaula = function(){
 

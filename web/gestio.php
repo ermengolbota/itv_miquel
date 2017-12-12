@@ -49,6 +49,7 @@
 					if ($result->num_rows > 0) {
 						?>
 						<table class="tableGestio">
+							<thead>
 							<tr>
 								<th>Matrícula</th>
 								<th>Dia</th>
@@ -60,6 +61,8 @@
 								<th>Editar</th>
 								<th>Eliminar</th>
 							</tr>
+							</thead>
+  							<tbody>
 						<?php
 	   					 // output data of each row
 	    				while($row = $result->fetch_row()) {
@@ -103,6 +106,7 @@
 							<?php
 	    				}
 						?>
+					</tbody>
 						</table>
 						<?php
 					} else {

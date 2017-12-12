@@ -52,20 +52,41 @@ var Calendar = (function() {
 		return str;
 	};
 
+	var todayDay = function(){
+		var d = new Date();
+		return d;
+	}
+
 	var changeMonth = function(year,month,day){
 
-		var datos = {
-			dia : 1,
-			mes : month,
-			any : year
+		var d = todayDay();
+		var m = d.getMonth()+1;
+		var today = d.getDate();
+		var y = d.getFullYear();
+		var datos;
+
+		if (month == m && y == year){
+			datos = {
+				dia : today,
+				mes : month,
+				any : year
+			}
+		} else {
+			datos = {
+				dia : 1,
+				mes : month,
+				any : year
+			}
 		}
 
+		
 		$('#calendari').html(Calendar.imprimir(datos));
 		Calendar.getDataDay(datos);
 	};
 
 	var createTable = function(year,month,day){
-		
+		var tdy = todayDay();
+
 		// Contador que s'utilitza per pintar els dies
 		var cont = 1;
 
@@ -86,9 +107,9 @@ var Calendar = (function() {
 
 		var days = 0;
 
-		var str = '<h1>'+getNameMonth(month)+' '+year+'</h1>';
+		var str = '<h1 class="titleIndex">'+getNameMonth(month)+' '+year+'</h1>';
 		
-		str += '<table><thead><tr><th>DILL</th><th>DIMA</th><th>DIME</th><th>DIJ</th><th>DIV</th><th>DIS</th><th>DIU</th></tr></thead>';
+		str += '<table><thead><tr><th>DILL</th><th>DIMA</th><th>DIME</th><th>DIJO</th><th>DIVE</th><th>DISS</th><th>DIUM</th></tr></thead><tbody>';
 		for(i=0;i<6;i++){
 			str += '<tr>';
 			for(j=0;j<7;j++){
@@ -100,7 +121,7 @@ var Calendar = (function() {
 						|| (day1==6 && k==5)){
 							break;
 						}
-						days++;
+						days++;getDataDay
 					}
 				}
 				/* Avisa de que es alla on comenca el dia 1 del mes obtingut */
@@ -109,15 +130,15 @@ var Calendar = (function() {
 					|| (day1==6 && j==5)){
 					aux = true;
 				}
-				/* Pinta els dies del mes obtingut */
-				/*if (aux && cont <= dm && day == cont){
-					str += '<td class="nowMonth">'+cont+'</td>';
+				/* Pinta els dia d'avui */
+				if (aux && cont <= dm && tdy.getDate() == cont && tdy.getMonth()+1 == month && tdy.getFullYear() == year){
+					str += '<td class="today nowMonth">'+cont+'</td>';
 					cont++;
-				} else*/
-				// Si el dia que pinta es anterior al dia d'avui no el podra seleccionar
-				if(aux && cont <= dm && cont<day){
-					str += '<td>'+cont+'</td>';
-					cont++;
+				} 
+				/* Si el dia que pinta es anterior al dia d'avui no el podra seleccionar*/
+				else if(aux && cont <= dm && cont<day){
+					str += '<td class="disabled">'+cont+'</td>';
+					cont++;getDataDay
 				} 
 				// Dies que l'usuari podra seleccionar
 				else if(aux && cont <= dm && cont>=day){
@@ -126,19 +147,19 @@ var Calendar = (function() {
 				}
 				/* Pinta els dies del mes seguent despres del obtingut */
 				else if (cont > dm) {
-					str += '<td>'+cont2+'</td>';
+					str += '<td class="disabled">'+cont2+'</td>';
 					cont2++;
 				} 
 				/* Pinta els dies del mes anterior al principi */
 				else {
 					var bm = befm - days + 1;
-					str += '<td>'+bm+'</td>';
+					str += '<td class="disabled">'+bm+'</td>';
 					days--;
 				}	
 			}
 			str += '</tr>';
 		}
-		str += '</table>';
+		str += '</tbody></table>';
 		return str;
 	};
 
@@ -156,16 +177,27 @@ var Calendar = (function() {
 
 		var str = createTable(year,month,day);
 
-		str += '<div style="width: 100%"><span style="float:left">'+beforeButtonMonth(year,month,day)+'</span> <span style="float:right">'+afterButtonMonth(year,month,day)+'</span></div>';
+		str += '<div class="calButtons"><span class="left">'+beforeButtonMonth(year,month,day)+'</span> <span class="right">'+afterButtonMonth(year,month,day)+'</span></div><div class="clear"></div>';
 
 		return str;
 	};
 
 	var getDataDay = function(datos){
+		$('table').on('mouseover','.nowMonth',function(){
+			$(this).css("background-color", "#FF9B21");
+        });
+
+        $('table').on('mouseout','.nowMonth', function(){
+        	$(this).css("background-color", "white");
+		});
+
 		$('table').on('click','.nowMonth',function(){
 			var day = $(this).html();
 			var month = datos.mes || 1;
 			var year = datos.any || 2017;
+			console.log(day);
+			console.log(month);
+			console.log(year);
 			url = "./hores.php?day=" + day + "&month=" + month + "&year=" + year;
 			window.location.replace(url);
 		});
@@ -177,3 +209,11 @@ var Calendar = (function() {
 		getDataDay : getDataDay
 	};
 }());
+
+$(document).ready(function(){
+	$('table').on('hover','td',function(){
+		$(this).css("background-color", "#FF9B21");
+        }, function(){
+        $(this).css("background-color", "white");
+	});
+});

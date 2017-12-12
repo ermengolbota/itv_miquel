@@ -38,14 +38,14 @@
 	$year = $_GET['year'];
 	$_SESSION['dia'] = $year."-".$month."-".$day;
 	$matricula = $_SESSION['matricula'];
-  		$_SESSION['val_matricula'] = 0;
+  	$_SESSION['val_matricula'] = 0;
 
 	?>
 	<div class="row">
     		<div class="two columns"><p></p></div>
-    		<div class="eight columns" style="align-content: center;">
+    		<div class="eight columns">
     			<?php include "header.php" ?>
-    			<?php echo "<h1>".$day."/".$month."/".$year."</h1>"; ?>
+    			<?php echo "<h1 class='titleIndex'>".$day."/".$month."/".$year."</h1>"; ?>
     			<div id="taulaHores" >
     			<script language="javascript">
     				$('#taulaHores').html(TableHora.crea());

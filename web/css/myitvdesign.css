@@ -16,7 +16,11 @@ footer {
 form {
 	position: relative;
 	text-align: center;
-	padding-top: 3em;
+	padding-top: 2em;
+}
+
+table td {
+	text-align: center;
 }
 
 .logoHeader {
@@ -63,8 +67,38 @@ form {
 
 .tableGestio{
 	margin: auto;
+	box-sizing: border-box;
 }
 
-.tableGestio th {
-	text-align: center;
+#calendari, table {
+	margin: auto;
+}
+
+.clear {
+	clear: both;
+}
+
+.calButtons {
+	width: 50%;
+	margin: auto;
+}
+
+.left {
+	float: left;
+	margin: 1em;
+}
+
+.right {
+	float: right;
+	margin: 1em;
+}
+
+.disabled {
+	color: #a8a8a8;
+
+}
+
+.today {
+	background-color: #63639C;
+	color: #fff;
 }
