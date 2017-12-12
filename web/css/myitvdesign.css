@@ -8,9 +8,9 @@ header {
 
 footer {
 	text-align: center;
-	position: absolute;
-	width: 65%;
-	top: 90%;
+	position: relative;
+	background-color: #63639C;
+	padding-top: 0.5rem;
 }
 
 form {
@@ -24,7 +24,9 @@ form {
 }
 
 .titleHeader {
-	
+	color: #63639C;
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
 .rightH {
@@ -43,4 +45,26 @@ form {
 .form {
 	padding-right: 1em;
 	font-weight: bold;
+}
+
+.eight.columns {
+	margin-top: 1em;
+	margin-bottom: 1em;
+	border: solid 1px #CBCBCB;
+	box-shadow: 0 0 5px 1px #a8a8a8;
+}
+
+.copyright {
+	color: #fff;
+	font-size: 10px;
+	padding-bottom: 1em;
+	margin-bottom: 0rem;
+}
+
+.tableGestio{
+	margin: auto;
+}
+
+.tableGestio th {
+	text-align: center;
 }

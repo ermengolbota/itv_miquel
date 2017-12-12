@@ -2,7 +2,7 @@
 session_start();
 	$matricula = $_SESSION['matricula'];
 	$dia = $_SESSION['dia'];
-	$hora = $_SESSION['hours'];
+	$hora = $_SESSION['hour'];
 	$nom= $_POST['nom_propietari'];
 	$cognom= $_POST['cognom_propietari'];
 	$telefon= $_POST['telefon'];
@@ -26,9 +26,10 @@ $sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$h
 
 echo "<div id='retorna'>";
 if ($conn->query($sql) === TRUE) {
-    echo "S'ha enregistrat la teva cita";
-    echo $matricula;
-    echo "<br><a href=../index.php>GO INDEX</a>";
+    echo "S'ha enregistrat la teva cita<br> Será redirigido al Inicio.";
+    sleep(2);
+	header('Location: ../index.php');
+   
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
     echo "<br><a href=\"javascript:history.go(-1)\">GO BACK</a>";
