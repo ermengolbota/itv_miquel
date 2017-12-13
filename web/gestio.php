@@ -45,7 +45,7 @@
 						//
 						if ($result->num_rows > 0) {
 							?>
-							<table class="u-full-width">
+							<table>
 								<thead>
 									<tr>
 										<th>Matrícula</th>
@@ -84,7 +84,7 @@
 										<input type="hidden" name="tlf" value="<?php echo $dades[5]; ?>" />
 										<input type="hidden" name="email" value="<?php echo $dades[6]; ?>" />
 										<input type="hidden" name="id" value="<?php echo $dades[7]; ?>" />
-										<input type="submit" name="editEntry" value="Edita" />
+										<input type="submit" name="editEntry" value="Edita" id="gestioSubmit" />
 									</form>
 								</td>
 								<td>
@@ -99,7 +99,7 @@
 										<input type="hidden" name="tlf" value="<?php echo $dades[5]; ?>" />
 										<input type="hidden" name="email" value="<?php echo $dades[6]; ?>" />
 										<input type="hidden" name="id" value="<?php echo $dades[7]; ?>" />
-										<input type="submit" name="deleteEntry" value="Elimina" />
+										<input type="submit" name="deleteEntry" value="Elimina" id="gestioSubmit" />
 									</form>
 								</td>
 								</tr>
