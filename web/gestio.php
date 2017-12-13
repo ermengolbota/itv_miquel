@@ -35,6 +35,7 @@
 					if ($conn->connect_error) {
 						// en cas de fall a la connexio
 		    			die("Connection failed: " . $conn->connect_error);
+		    			header('Location: error.php');
 					}
 					// valida la "matricula" per evitar atacs XSS
 					if (validateMatricula($dades[0]) == 0) { 
@@ -42,7 +43,7 @@
 						$sql = createSQL($dades[0]);
 						// fa la consulta SQL a la BD
 						$result = getResult($conn, $sql);
-						//
+						// comprova si hi ha resultats
 						if ($result->num_rows > 0) {
 							?>
 							<table class="tableGestio">
@@ -105,17 +106,16 @@
 						<?php
 						} else {
 							// en cas de no trobar resultats a la BD, comportament inòspit
-		   					 echo "<span class='error'>Alguna cosa ha fallat, redireccionant a l'index</span>";
-		   					 header('Refresh: 2; URL=./');
+		   					 close($conn);
+		   					 header('Location: error.php');
 						}
-						$conn->close();
+						close($conn);
 					}
 				} else{
 					// si no es pasa una matricula, redirecciona al index
 					header('Location: ./');
 				}
-			?>
-			<?php include "footer.php"; ?>
+			include "footer.php"; ?>
 			</div>
 	    <div class="two columns"></div>
 	</div>
