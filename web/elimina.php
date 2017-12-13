@@ -37,6 +37,7 @@
 						$conn = connect();
 						if ($conn->connect_error) {
 		    				die("Connection failed: " . $conn->connect_error);
+		    				header('Location: error.php');
 						}
 						$id = $_POST["id"];
 						if (validateID($id) == 0) {
@@ -46,7 +47,7 @@
 								echo "Record deleted successfully";
 							} else {
 								close($conn);
-								echo "Error deleting record: " . $conn->error;
+								header('Location: error.php');
 							}
 						} else {
 							header('Location: ./');

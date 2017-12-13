@@ -15,14 +15,23 @@
 		<div class="row">
 			<div class="twelve columns">
 				<?php
-					session_start(); 
+					require_once "php/errors.php";
+					session_start()
+					// codi d'error predeterminat
+					$error_code = 0;
+					if ($_SESSION['error']){
+						// normalment es pasa un codi d'error
+						$error_code = $S_SESSION['error'];
+					}
 					include "header.php"; ?>
-				<span class="error">Alguna cosa ha fallat.</span>
-				<p class="info">Aquesta pàgina es redireccionara automaticament a l'index en 5 segons</p>
+				<span class="error"><?php echo getErrorText($error_code); ?></span>
+				<p class="info">Aquesta pàgina es redireccionara automaticament a l'inici en 5 segons</p>
 				<?php
+					// borra la sessió i es redirecciona automaticament
 					session_destroy();
 					header('Refresh: 5; URL=./');
-					include "footer.php"; ?>
+					include "footer.php";
+				?>
 			</div>
 		</div>
 	</div>

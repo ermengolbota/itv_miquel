@@ -9,4 +9,4 @@ INSERT INTO IAMotors.Reserva VALUES('1112AAA1512034603', '1112BBB', CURRENT_DATE
 INSERT INTO IAMotors.Reserva VALUES('1113AAA1512034603', '1113BBB', CURRENT_DATE, TIME('17:30'), 1, 1, 'turismo', 'Joan', 'Calafat', '666555666', 'a15joacalsas@iam.cat');
 INSERT INTO IAMotors.Reserva VALUES('1114AAA1512034603', '1114BBB', CURRENT_DATE, TIME('18:00'), 1, 1, 'turismo', 'Joan', 'Calafat', '666555666', 'a15joacalsas@iam.cat');
 INSERT INTO IAMotors.Reserva VALUES('1115AAA1512034603', '1115BBB', CURRENT_DATE, TIME('19:00'), 1, 1, 'turismo', 'Miquel', 'Vidal', '666111666', 'a15miqvidgom@iam.cat');
-INSERT INTO IAMotors.Reserva VALUES('1116AAA1512034603', '1116BBB', CURRENT_DATE, TIME('19:30'), 2, 1, 'turismo', 'Miquel', 'Vidal', '666111666', 'a15miqvidgom@iam.cat');
+INSERT INTO IAMotors.Reserva VALUES('1116AAA1512034603', '1116BBB', CURRENT_DATE, TIME('19:00'), 2, 1, 'turismo', 'Miquel', 'Vidal', '666111666', 'a15miqvidgom@iam.cat');
