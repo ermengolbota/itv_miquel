@@ -54,7 +54,7 @@ $sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$h
 echo "<div id='retorna'>";
 if ($conn->query($sql) === TRUE) {
 
-	header('Location: ./confirmacio.php');
+	header('Location: ../confirmacio.php');
    
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -73,7 +73,7 @@ $sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$h
 echo "<div id='retorna'>";
 if ($conn->query($sql) === TRUE) {
 
-	header('Location: ./confirmacio.php');
+	header('Location: ../confirmacio.php');
    
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
