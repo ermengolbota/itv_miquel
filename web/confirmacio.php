@@ -37,7 +37,7 @@
 				echo "</br><strong>Correo de contacto:</strong> ".$_SESSION['email']."</p>";
 
 				?>
-				<input type="button" onclick="location.href='index.php';" value="Volver" />
+				<input class="centered" type="button" onclick="location.href='index.php';" value="Volver" />
 				<?php include "footer.php" ?>
 			</div>
 		</div>
