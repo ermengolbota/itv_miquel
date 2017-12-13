@@ -27,8 +27,6 @@
 }*/
 	?>
 
-	<?php include "header.php" ?>
-
 	<?php
 	if($_SESSION['val_matricula']==0){
 			$matricula = $_SESSION['matricula'];
@@ -36,36 +34,48 @@
 		$_SESSION['hour'] = $_GET['hour'];
 	}else
 	$_SESSION['matricula'] = $_POST['matricula'];
-	
 
 	?>
-	<table>
-		<tr>
-			<div id="edit_matricula">
-						<form action="dades_client.php" method="POST">
-        <input name="matricula" type="text" id="new_matricula" placeholder="Matricula" /><br />
-        <input type="submit" id="edit_refresh" value="Edita">
-    </form>
-        </div>
-			<td>
+	<div class="row">
+    <div class="two columns"><p></p></div>
+    <div class="eight columns">
+	    <?php include "header.php" ?>
+		<h1>Dades del Propietari</h1>
+		<table>
+			<tr>
+				<td class="noBorder">
+				<div id="edit_matricula">
+					<form action="dades_client.php" method="POST">
+	        			<input name="matricula" type="text" id="new_matricula" placeholder="Matricula" />
+	        			<br />
+	       				<input type="submit" id="edit_refresh" value="Edita">
+	    			</form>
+	        	</div>
+	        	</td>
+	        </tr>
+	        <tr>
+				<td>
 				<form action="php/inserir_dades.php" method="POST">
-					
-        <p id="old_matricula">
-        <?php
-        
-        echo $_SESSION['matricula'];
-        ?>
-        <input type="button" name="edit" id="edit" value="Edita">
-        </p>
-        <input name="nom_propietari" type="text" id="nom_propietari" placeholder="Nom Propietari" /><br />
-        <input name="cognom_propietari" type="text" id="cognom_propietari" placeholder="Cognom Propietari" /><br />
-           <input name="telefon" type="text" id="telefon" placeholder="Telefon" /><br />
-         <input name="email" type="email" id="email" placeholder="email" /><br />
-        <input type="submit" id="submit" value="Enviar">
-    </form>
-			</td>
-		</tr>
-	</table>
-	<div id="footer"><?php include "footer.php" ?></div>
+						
+	        <p id="old_matricula">
+	        <?php
+	        
+	        echo $_SESSION['matricula'];
+	        ?>
+	        <input type="button" name="edit" id="edit" value="Edita">
+	        </p>
+	        <input name="nom_propietari" type="text" id="nom_propietari" placeholder="Nom Propietari" /><br />
+	        <input name="cognom_propietari" type="text" id="cognom_propietari" placeholder="Cognom Propietari" /><br />
+	           <input name="telefon" type="text" id="telefon" placeholder="Telefon" /><br />
+	         <input name="email" type="email" id="email" placeholder="email" /><br />
+	        <input type="submit" id="submit" value="Enviar">
+	    </form>
+				</td>
+			</tr>
+		</table>
+		<?php include "footer.php" ?>
+	</div>
+    <div class="two columns"></div>
+</div>
 </body>
 </html>
