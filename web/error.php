@@ -16,12 +16,13 @@
 			<div class="twelve columns">
 				<?php
 					require_once "php/errors.php";
-					session_start()
+					session_start();
 					// codi d'error predeterminat
 					$error_code = 0;
-					if ($_SESSION['error']){
+					echo $_SESSION["error"];
+					if ($_SESSION["error"]){
 						// normalment es pasa un codi d'error
-						$error_code = $S_SESSION['error'];
+						$error_code = $_SESSION["error"];
 					}
 					include "header.php"; ?>
 				<span class="error"><?php echo getErrorText($error_code); ?></span>

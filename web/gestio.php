@@ -33,8 +33,8 @@
 					$dades[0] = $_SESSION["matricula"];
 					$conn = connect();
 					if ($conn->connect_error) {
-						// en cas de fall a la connexio
-		    			die("Connection failed: " . $conn->connect_error);
+						// en cas de fall a la connexio es pasa l'error a la pàg. error.php
+		    			$_SESSION["error"] = 1;
 		    			header('Location: error.php');
 					}
 					// valida la "matricula" per evitar atacs XSS
