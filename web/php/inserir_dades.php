@@ -11,12 +11,14 @@ session_start();
 	$cognom= $_POST['cognom_propietari'];
 	$telefon= $_POST['telefon'];
 	$email = $_POST['email'];
+	$id = $_SESSION['id'];
 
 	//Creació de les variables de sessió que s'utilitzaran per la confirmació de la cita
 	$_SESSION['nom_propietari'] = $_POST['nom_propietari'];
 	$_SESSION['cognom_propietari'] = $_POST['cognom_propietari'];
 	$_SESSION['telefon'] = $_POST['telefon'];
 	$_SESSION['email'] = $_POST['email'];
+
 
 //variables d'inici a la BBDD
 $servername = "localhost";
@@ -31,6 +33,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
+//Si ve des de gestió via edita elimina el registre amb aquell ID
+
+if($_SESSION['edita'] == 1){
+	$sql =  "DELETE FROM Reserva WHERE id='$id'";
+	$result = $conn->query($sql);
+
+}
 
 //Creació de l'ID a partir de la funció time() i la matricula del vehicle
 $id = time().''.$matricula;

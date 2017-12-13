@@ -28,6 +28,7 @@ window.onhashchange=function(){window.location.hash="red";}
     //Es guarda la matricula en una variable
     $matricula = $_POST['matricula'];
     $_SESSION['block'] = 0;
+    $_SESSION['edita'] = 0;
 ?>
 <div class="container">
 <div class="row">
