@@ -41,21 +41,20 @@
   	$_SESSION['val_matricula'] = 0;
 
 	?>
+<div class="container">
 	<div class="row">
-    		<div class="two columns"><p></p></div>
-    		<div class="eight columns">
-    			<?php include "header.php" ?>
-    			<?php echo "<h1 class='titleIndex'>".$day."/".$month."/".$year."</h1>"; ?>
-    			<div id="taulaHores" >
-    			<script language="javascript">
-    				$('#taulaHores').html(TableHora.crea());
-    				TableHora.hora();
-    			</script>
-    			<?php include "footer.php" ?>
-    		</div>
-    		<div class="two columns"></div>
+    	<div class="twelve columns">
+    		<?php include "header.php" ?>
+    		<?php echo "<h1 class='titleIndex'>".$day."/".$month."/".$year."</h1>"; ?>
+    		<div id="taulaHores" >
+    		<script language="javascript">
+    			$('#taulaHores').html(TableHora.crea());
+    			TableHora.hora();
+    		</script>
+    		<?php include "footer.php" ?>
+    	</div>
   	</div>
-
+</div>
 	
 	<?php
 		$conn->close();

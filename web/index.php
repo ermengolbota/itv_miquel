@@ -30,9 +30,9 @@ window.onhashchange=function(){window.location.hash="red";}
                 echo "<p style='color: red'>Tienes que rellenar la matricula";
         }
 ?>
+<div class="container">
 <div class="row">
-    <div class="two columns"><p></p></div>
-    <div class="eight columns">
+    <div class="twelve columns">
         <?php include "header.php" ?>
     	<h1 class="titleIndex">Benvingut a IAMotors</h1>
         <form action="php/index_comprova.php" method="POST">
@@ -41,9 +41,7 @@ window.onhashchange=function(){window.location.hash="red";}
         </form>
         <?php include "footer.php" ?>
     </div>
-    <div class="two columns"></div>
-
 </div>
-
+</div>
 </body>
 </html>

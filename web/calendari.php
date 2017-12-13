@@ -20,10 +20,9 @@
   }*/
  
   ?>
-
+    <div class="container">
   		<div class="row">
-    		<div class="two columns"><p></p></div>
-    		<div class="eight columns">
+    		<div class="twelve columns">
           <?php include "header.php"; ?>
           <div id="calendari"></div>
           <?php 
@@ -55,8 +54,7 @@
           </script>
           <?php include "footer.php" ?>
     		</div>
-    		<div class="two columns"></div>
   		</div>
-  	
+  	</div>
 </body>
 </html>
