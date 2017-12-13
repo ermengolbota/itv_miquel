@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 
  <html class="">
   <link rel="stylesheet" href="css/myitvdesign.css">
@@ -12,4 +12,9 @@
 <h1>Forbidden</h1>
 Se t'ha denegat l'accés en aquesta pagina<br>
 <a href="index.php">Index</a>
-</html>
+</html>-->
+<?php
+	session_start();
+	session_destroy();
+	header('Location: ./');
+?>
