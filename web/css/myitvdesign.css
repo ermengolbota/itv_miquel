@@ -1,3 +1,4 @@
+/* general */
 body {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	background-color: #F7F7F7;
@@ -30,6 +31,12 @@ table td {
 
 h1, h2 {
 	text-align: center;
+}
+
+h5 {
+	font-size: 2rem;
+	color: #878AB4;
+	font-style: italic;
 }
 
 .logoHeader {
@@ -71,6 +78,22 @@ h1, h2 {
 	margin-bottom: 0rem;
 }
 
+/* Part gestio */
+.noBorder {
+	border: none;
+}
+
+#gestioSubmit {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	position: absolute;
+	right: 0em;
+	top: -0.5em;
+}
+
+/* part calendari */
 #calendari {
 	margin: auto;
 }
@@ -103,21 +126,35 @@ h1, h2 {
 	background-color: #FF9B21;
 }
 
-.noBorder {
-	border: none;
-}
 
-#gestioSubmit {
-	padding-top: 0px;
-	padding-bottom: 0px;
-	padding-left: 5px;
-	padding-right: 5px;
-	position: absolute;
-	right: 0em;
-	top: -0.5em;
-}
-
+/* En dades del client */
 .dataCita {
 	position: relative;
 	left: 25em;
 }
+
+.centered {
+	position: relative;
+	left: 38em;
+}
+
+/* Part administrador */
+#admin {
+	max-width: 1220px;
+}
+
+.admin {
+	background: white; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#FF9C21, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#FF9C21, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#FF9C21, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#FF9C21, white); /* Standard syntax (must be last) */
+}
+
+.adminRight {
+	float: right;
+	margin-top: -2em;
+	margin-right: 0.5em;
+}
+
+/* Menú */
