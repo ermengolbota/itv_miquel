@@ -19,15 +19,17 @@ form {
 	text-align: center;
 }
 
+table {
+	margin: auto;
+	margin-bottom: 2em;
+}
+
 table td {
-	text-align: center;
 	font-size: 12px;
 }
 
 h1 {
-	clear: both;
 	text-align: center;
-
 }
 
 .logoHeader {
@@ -69,14 +71,7 @@ h1 {
 	margin-bottom: 0rem;
 }
 
-.full-width-container{
-	width: 100%;
-	max-width: 100%;
-	clear: both;
-	margin: 0 auto;
-}
-
-#calendari, table {
+#calendari {
 	margin: auto;
 }
 
@@ -110,4 +105,14 @@ h1 {
 
 .noBorder {
 	border: none;
+}
+
+#gestioSubmit {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	position: absolute;
+	right: 0em;
+	top: -0.5em;
 }
