@@ -1,35 +1,26 @@
 <?php 
+	require_once "config.php";
+	//Inici de la sessio
+	session_start();
 
-//Inici de la sessio
-session_start();
-
-//Creació de les variables que s'utilitzaran per fer l'INSERT a la BBDD
+	//Creació de les variables que s'utilitzaran per fer l'INSERT a la BBDD
 	$matricula = $_SESSION['matricula'];
 	$dia = $_SESSION['dia'];
-	$hora = $_SESSION['hour'];
-	$nom= $_POST['nom_propietari'];
-	$cognom= $_POST['cognom_propietari'];
-	$telefon= $_POST['telefon'];
-	$email = $_POST['email'];
+	$hora = $_SESSION['hora'];
 
 	//Creació de les variables de sessió que s'utilitzaran per la confirmació de la cita
-	$_SESSION['nom_propietari'] = $_POST['nom_propietari'];
-	$_SESSION['cognom_propietari'] = $_POST['cognom_propietari'];
-	$_SESSION['telefon'] = $_POST['telefon'];
+	$_SESSION['nom'] = $_POST['nom_propietari'];
+	$_SESSION['cognom'] = $_POST['cognom_propietari'];
+	$_SESSION['tlf'] = $_POST['telefon'];
 	$_SESSION['email'] = $_POST['email'];
 
-//variables d'inici a la BBDD
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "IAMotors";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+	// Create connection
+	$conn = connect();
+	// Check connection
+	if ($conn->connect_error) {
+    	$_SESSION["error"] = 1;
+    	header('Location: ../error.php');
+	} 
 
 
 //Creació de l'ID a partir de la funció time() i la matricula del vehicle
@@ -53,7 +44,7 @@ $sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$h
 
 echo "<div id='retorna'>";
 if ($conn->query($sql) === TRUE) {
-
+	$_SESSION["accio"] = "crear";
 	header('Location: ../confirmacio.php');
    
 } else {
@@ -72,7 +63,7 @@ $sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$h
 
 echo "<div id='retorna'>";
 if ($conn->query($sql) === TRUE) {
-
+	$_SESSION["accio"] = "crear";
 	header('Location: ../confirmacio.php');
    
 } else {

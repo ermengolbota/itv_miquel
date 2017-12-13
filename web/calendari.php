@@ -26,8 +26,8 @@
           <?php include "header.php"; ?>
           <div id="calendari"></div>
           <?php 
-          if($_POST['dia']){
-            $date = $_POST['dia'];
+          if($_SESSION['dia']){
+            $date = $_SESSION['dia'];
             $day = substr($date,8,9);
             $month = substr($date,5,-3);
             $year = substr($date,0,4);
