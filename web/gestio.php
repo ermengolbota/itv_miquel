@@ -20,11 +20,11 @@
 	<title>Gestió</title>
 </head>
 <body>
+	<div class="container">
 	<div class="row">
-	    <div class="two columns"><p></p></div>
-	    <div class="eight columns">
+	    <div class="twelve columns">
 			<?php include "header.php"; ?>
-			<h1 class="titleIndex">Gestió</h1>
+			<h1>Gestió</h1>
 			<?php
 				if ($_SESSION["matricula"]) {
 					// si es pasa una matricula
@@ -46,18 +46,21 @@
 						// comprova si hi ha resultats
 						if ($result->num_rows > 0) {
 							?>
-							<table class="tableGestio">
-								<tr>
-									<th>Matrícula</th>
-									<th>Dia</th>
-									<th>Hora</th>
-									<th>Nom</th>
-									<th>Cognom</th>
-									<th>Tlf.</th>
-									<th>Email</th>
-									<th>Editar</th>
-									<th>Eliminar</th>
-								</tr>
+							<table class="u-full-width">
+								<thead>
+									<tr>
+										<th>Matrícula</th>
+										<th>Dia</th>
+										<th>Hora</th>
+										<th>Nom</th>
+										<th>Cognom</th>
+										<th>Tlf.</th>
+										<th>Email</th>
+										<th>Editar</th>
+										<th>Eliminar</th>
+									</tr>
+								</thead>
+								<tbody>
 							<?php
 		   					// itera les files del resultat i les mostra en la taula
 		    				while($row = $result->fetch_row()) {
@@ -102,6 +105,7 @@
 								</td>
 								</tr>
 								<?php } ?>
+							</tbody>
 						</table>
 						<?php
 						} else {
@@ -117,7 +121,7 @@
 				}
 			include "footer.php"; ?>
 			</div>
-	    <div class="two columns"></div>
+		</div>
 	</div>
 </body>
 </html>

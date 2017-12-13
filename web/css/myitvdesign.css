@@ -1,5 +1,6 @@
 body {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	background-color: #F7F7F7;
 }
 
 header {
@@ -16,11 +17,17 @@ footer {
 form {
 	position: relative;
 	text-align: center;
-	padding-top: 2em;
 }
 
 table td {
 	text-align: center;
+	font-size: 12px;
+}
+
+h1 {
+	clear: both;
+	text-align: center;
+
 }
 
 .logoHeader {
@@ -41,17 +48,14 @@ table td {
 	float: left;
 }
 
-.titleIndex {
-	clear: both;
-	text-align: center;
-}
-
 .form {
+	padding-top: 2em;
 	padding-right: 1em;
 	font-weight: bold;
 }
 
-.eight.columns {
+.twelve.columns {
+	background-color: white;
 	margin-top: 1em;
 	margin-bottom: 1em;
 	border: solid 1px #CBCBCB;
@@ -65,9 +69,11 @@ table td {
 	margin-bottom: 0rem;
 }
 
-.tableGestio{
-	margin: auto;
-	box-sizing: border-box;
+.full-width-container{
+	width: 100%;
+	max-width: 100%;
+	clear: both;
+	margin: 0 auto;
 }
 
 #calendari, table {
@@ -99,6 +105,9 @@ table td {
 }
 
 .today {
-	background-color: #63639C;
-	color: #fff;
+	background-color: #FF9B21;
+}
+
+.noBorder {
+	border: none;
 }

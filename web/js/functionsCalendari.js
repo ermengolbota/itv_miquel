@@ -195,9 +195,6 @@ var Calendar = (function() {
 			var day = $(this).html();
 			var month = datos.mes || 1;
 			var year = datos.any || 2017;
-			console.log(day);
-			console.log(month);
-			console.log(year);
 			url = "./hores.php?day=" + day + "&month=" + month + "&year=" + year;
 			window.location.replace(url);
 		});
