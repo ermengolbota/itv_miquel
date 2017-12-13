@@ -28,7 +28,7 @@ table td {
 	font-size: 12px;
 }
 
-h1 {
+h1, h2 {
 	text-align: center;
 }
 
@@ -115,4 +115,9 @@ h1 {
 	position: absolute;
 	right: 0em;
 	top: -0.5em;
+}
+
+.dataCita {
+	position: relative;
+	left: 25em;
 }

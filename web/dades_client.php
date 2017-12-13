@@ -36,9 +36,9 @@
 	$_SESSION['matricula'] = $_POST['matricula'];
 
 	?>
+	<div class="container">
 	<div class="row">
-    <div class="two columns"><p></p></div>
-    <div class="eight columns">
+    <div class="twelve columns">
 	    <?php include "header.php" ?>
 		<h1>Dades del Propietari</h1>
 		<table>
@@ -75,7 +75,7 @@
 		</table>
 		<?php include "footer.php" ?>
 	</div>
-    <div class="two columns"></div>
+</div>
 </div>
 </body>
 </html>
