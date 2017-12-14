@@ -20,8 +20,14 @@
 					if (strcmp($_SESSION["accio"], "crear") == 0) {
 						$dia = humanDate($_SESSION["dia"]);
 						$hora = $_SESSION["hora"];
+						if($_SESSION["edita"] == 1){
 				?>
-						<h2>Cita creada</h2>
+						<h2>Cita modificada</h2><?php 
+						}else{
+						?>
+						<h2>Cita creada</h2><?php 
+						}
+						?>
 						<p><strong>Dia de la cita:</strong> <?php echo $dia; ?></p>
 						<p><strong>Hora de la cita:</strong> <?php echo $hora; ?></p>
 						<p><strong>Matricula del vehicle:</strong> <?php echo $_SESSION["matricula"]; ?></p>
@@ -34,7 +40,11 @@
 				<?php
 					} elseif (strcmp($_SESSION["accio"], "borrar") == 0) {
 						# code...
-					} else {
+					}
+					elseif ($_SESSION["edita"] == 1) {
+						header('Location: ./confirmacio.php');
+						}
+					 else {
 						header('Location: ./');
 					}
 				?>
