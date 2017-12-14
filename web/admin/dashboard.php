@@ -13,7 +13,11 @@
 		<div class="row">
 			<div class="twelve columns">
 				<?php include "header.php"; ?>
-				<p><a href="llista.php">lista</a></p>
+				<ul>
+					<li><p class="greetAdmin">Benvingut/da Administrador</p></li>
+					<li><a class="btnMenu" href="llista.php">Llista</a></li>
+				</ul>
+				<p></p>
 				<?php include "footer.php"; ?>
 			</div>
 		</div>
