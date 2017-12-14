@@ -26,16 +26,16 @@
           <?php include "header.php"; ?>
           <div id="calendari"></div>
           <?php 
-          if($_SESSION['dia']){
-            $date = $_SESSION['dia'];
+          /*if($_SESSION['dia']){
+           $date = $_SESSION['dia'];
             $day = substr($date,8,9);
             $month = substr($date,5,-3);
             $year = substr($date,0,4);
-          } else {
+          } else {*/
             $day = date("d");
             $month = date("m");
             $year = date("Y");
-          }
+          //}
 
           ?>
     			<script language="javascript">

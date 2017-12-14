@@ -16,7 +16,7 @@
 	$_SESSION['tlf'] = $_POST['telefon'];
 	$_SESSION['email'] = $_POST['email'];
 
-
+	//Creació de variables a partir de la seva variable de SESSION
 	$tlf = $_SESSION['tlf'];
 	$nom = $_SESSION['nom'];
 	$cognom = $_SESSION['cognom'];
