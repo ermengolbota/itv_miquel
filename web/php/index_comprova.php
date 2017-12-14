@@ -28,6 +28,7 @@ if ($result->num_rows > 0) {
 
     
 } else {
+	$_SESSION['accio'] = "crear";
    header("Location: ../calendari.php");
     
     

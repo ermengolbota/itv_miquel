@@ -19,7 +19,6 @@
 					session_start();
 					// codi d'error predeterminat
 					$error_code = 0;
-					echo $_SESSION["error"];
 					if ($_SESSION["error"]){
 						// normalment es pasa un codi d'error
 						$error_code = $_SESSION["error"];
