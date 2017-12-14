@@ -30,6 +30,7 @@
 					// si es pasa una matricula
 					require_once 'php/config.php';
 					require_once 'php/gestioFunctions.php';
+					require_once 'php/functions.php';
 					$dades[0] = $_SESSION["matricula"];
 					$conn = connect();
 					if ($conn->connect_error) {

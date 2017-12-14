@@ -7,12 +7,21 @@
 	$matricula = $_SESSION['matricula'];
 	$dia = $_SESSION['dia'];
 	$hora = $_SESSION['hora'];
+	$id = $_SESSION["id"];
+	
 
 	//Creació de les variables de sessió que s'utilitzaran per la confirmació de la cita
 	$_SESSION['nom'] = $_POST['nom_propietari'];
 	$_SESSION['cognom'] = $_POST['cognom_propietari'];
 	$_SESSION['tlf'] = $_POST['telefon'];
 	$_SESSION['email'] = $_POST['email'];
+
+	//Creació de variables a partir de la seva variable de SESSION
+	$tlf = $_SESSION['tlf'];
+	$nom = $_SESSION['nom'];
+	$cognom = $_SESSION['cognom'];
+	$email = $_SESSION['email'];
+
 
 	// Create connection
 	$conn = connect();
@@ -35,7 +44,7 @@
 		//Si la variable row=0 (no hi ha cap cita en aquell dia i  hora) fa un insert amb el num_carril=1, si existeix alguna cita, ho fa amb el num_carril=2
 		if($row[0] == 0){
 			//Variable que conté la consulta per inserir les dades
-			$sql =  "UPDATE Reserva SET matricula='$matricula', dia='$dia', hora='$hora', num_carril=1, id_centre=1,tipus_vehicle='turismo', nom='$nom', cognom='$cognom', tlf=$telefon, mail='$email' WHERE id='$id';";
+			$sql =  "UPDATE Reserva SET matricula='$matricula', dia='$dia', hora='$hora', num_carril=1, id_centre=1,tipus_vehicle='turismo', nom='$nom', cognom='$cognom', tlf=$tlf, mail='$email' WHERE id='$id';";
 			$result = $conn->query($sql);
 
 			echo "<div id='retorna'>";
@@ -51,7 +60,7 @@
 		//Si hi ha una cita en un mateix dia i hora:
 		}elseif ($result == 1){
 			//Variable que conté la consulta per inserir les dades
-			$sql =  "UPDATE Reserva SET matricula='$matricula', dia='$dia', hora='$hora', num_carril=2, id_centre=1,tipus_vehicle='turismo', nom='$nom', cognom='$cognom', tlf=$telefon, mail='$email' WHERE id='$id';";
+			$sql =  "UPDATE Reserva SET matricula='$matricula', dia='$dia', hora='$hora', num_carril=2, id_centre=1,tipus_vehicle='turismo', nom='$nom', cognom='$cognom', tlf=$tlf, mail='$email' WHERE id='$id';";
 			echo "<div id='retorna'>";
 			if ($conn->query($sql) === TRUE) {
 				header('Location: ../confirmacio.php');
@@ -104,7 +113,7 @@
 			}
 			echo"</div>";
 		}
-
+}
 		//Tanquem la connexió a la BBDD
 		$conn->close();
 ?>

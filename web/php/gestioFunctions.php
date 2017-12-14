@@ -13,9 +13,4 @@
 		// retorna la consulta SQL per la matricula
 		return "SELECT matricula, dia, hora, nom, cognom, tlf, mail, id FROM Reserva WHERE matricula LIKE '$matricula';";
 	}
-	
-	function getResult($conn, $sql) {
-		// retorna el resultat de la consulta
-		return $conn->query($sql);
-	}
 ?>
