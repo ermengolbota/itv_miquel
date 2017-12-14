@@ -167,6 +167,7 @@ ul {
     background-color: #63639C;
     margin: 0em;
     vertical-align: baseline;
+    margin-bottom: 2em;
 }
 
 li a {
@@ -199,4 +200,30 @@ li, li a {
 .greetAdmin {
 	margin: 0em;
 	color: white;
+}
+
+/* css de llista part admin */
+
+.btnRightList, .btnLeftList{
+	position: fixed;
+}
+
+.btnLeftList {
+	left: 28em;
+}
+
+.btnRightList {
+	right: 28em;
+}
+
+.free {
+	text-align: center;
+	font-size: 14px;
+	font-style: italic;
+}
+
+.full {
+	text-align: center;
+	font-weight: bold;
+	background-color: #FFEEDA;
 }
