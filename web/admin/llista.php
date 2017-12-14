@@ -20,24 +20,30 @@
 			$dia = $_GET["dia"];
 		}
 	?>
-	<div class="row">
-		<div class="two columns">
-			<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-				<input type="hidden" name="dia" value="<?php calcPrevDay($dia); ?>" />
-				<input type="submit" value="<-" />
-			</form>
-		</div>
-		<div class="eight columns">
-			<?php include "../header.php"; ?>
-			<h1><?php echo humanDate($dia); ?></h1>
-			<table id="<?php echo $dia; ?>" border=1></table>
-			<?php include "../footer.php"; ?>
-		</div>
-		<div class="two columns">
-			<form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-				<input type="hidden" name="dia" value="<?php calcNextDay($dia); ?>" />
-				<input type="submit" value="->" />
-			</form>
+	<div class="container" id="admin">
+		<div class="row">
+			<div class="twelve columns">
+				<?php include "header.php"; ?>
+				<ul>
+					<li><p class="greetAdmin">Benvingut/da Administrador</p></li>
+					<li><a class="btnMenu" href="dashboard.php">Escriptori</a></li>
+				</ul>
+
+				<form class="btnLeftList" method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+					<input type="hidden" name="dia" value="<?php calcPrevDay($dia); ?>" />
+					<input type="submit" value="<-" />
+				</form>
+
+				<form class="btnRightList" method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+					<input type="hidden" name="dia" value="<?php calcNextDay($dia); ?>" />
+					<input type="submit" value="->" />
+				</form>
+
+				<h1><?php echo humanDate($dia); ?></h1>
+				<table id="<?php echo $dia; ?>"></table>
+
+				<?php include "footer.php"; ?>
+			</div>
 		</div>
 	</div>
 	<?php

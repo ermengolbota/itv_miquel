@@ -158,3 +158,72 @@ h5 {
 }
 
 /* Menú */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #63639C;
+    margin: 0em;
+    vertical-align: baseline;
+    margin-bottom: 2em;
+}
+
+li a {
+	border-left: black 1px solid;
+	border-right: black 1px solid;
+	transition: background-color 0.6s;
+}
+
+li, li a {
+    margin: 0em;
+    float: left;
+}
+
+.btnMenu {
+	color: white;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btnMenu:hover {
+	background-color: #FF9C21;
+	color: white;
+}
+
+.btnMenu, .greetAdmin {
+	padding: 0.3125rem 0.875rem;
+}
+
+.greetAdmin {
+	margin: 0em;
+	color: white;
+}
+
+/* css de llista part admin */
+
+.btnRightList, .btnLeftList{
+	position: fixed;
+}
+
+.btnLeftList {
+	left: 28em;
+}
+
+.btnRightList {
+	right: 28em;
+}
+
+.free {
+	text-align: center;
+	font-size: 14px;
+	font-style: italic;
+}
+
+.full {
+	text-align: center;
+	font-weight: bold;
+	background-color: #FFEEDA;
+}

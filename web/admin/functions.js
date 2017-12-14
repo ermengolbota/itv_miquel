@@ -52,11 +52,11 @@ var Llista = (function(){
 				var writen = false;
 				if (i < array.length && array[i][0] == horaActual && array[i][1] == carril) {
 					for (var j = 2; j < 7; j++) {
-						str += "<td>" + array[i][j] + "</td>";
+						str += "<td class='full'>" + array[i][j] + "</td>";
 						writen = true;
 					}
 				} else {
-					str += "<td colspan='5'>Lliure</td>";
+					str += "<td class='free' colspan='5'>Lliure</td>";
 				}
 				str += "</tr>";
 				if (carril == 1) {
