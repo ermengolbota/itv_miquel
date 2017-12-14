@@ -13,6 +13,7 @@
 <body>
 	<?php
 		require_once "functions.php";
+		require_once '../php/functions.php';
 		require_once "../php/config.php";
 		$dia = date('Y-m-d');
 		if ($_GET["dia"]) {
@@ -28,7 +29,7 @@
 		</div>
 		<div class="eight columns">
 			<?php include "../header.php"; ?>
-			<h1>Llista cites del dia <?php echo $dia; ?></h1>
+			<h1>Llista cites del dia <?php echo humanDate($dia); ?></h1>
 			<table id="<?php echo $dia; ?>" border=1></table>
 			<?php include "../footer.php"; ?>
 		</div>
@@ -40,12 +41,12 @@
 		</div>
 	</div>
 	<?php
-		$conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+		$conn = connect()
 		if ($conn->connect_error) {
     		die("Connection failed: " . $conn->connect_error);
 		}
 		$sql = "SELECT hora, num_carril, matricula, nom, cognom, tlf, mail FROM Reserva WHERE dia = '$dia' ORDER BY hora, num_carril ASC;";
-		$result = $conn->query($sql);
+		$result = getResult($conn, $sql);
 		$array[0][0] = "";
 		if ($result->num_rows > 0) {
 			$i = 0;
@@ -56,7 +57,7 @@
 				$i++;
 			}
 		}
-		$conn->close();
+		close($conn);
 	?>
 	<script src="functions.js"></script>
 	<script type="text/javascript">

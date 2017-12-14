@@ -18,133 +18,93 @@
 	$conn = connect();
 	// Check connection
 	if ($conn->connect_error) {
-    	$_SESSION["error"] = 1;
+    	$_SESSION['error'] = 1;
     	header('Location: ../error.php');
 	} 
 
-//variables d'inici a la BBDD
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "IAMotors";
+	//Si ve des de gestió via edita elimina el registre amb aquell ID
+	if($_SESSION['edita'] == 1){
+		$comprova =  "SELECT count(*) FROM Reserva WHERE dia='$dia' AND hora='$hora';";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+		//Variable on es guarda el resultat de la consulta
+		$result = $conn->query($comprova);
 
-//Si ve des de gestió via edita elimina el registre amb aquell ID
+		//Variable per sebre les files;
+		$row=$result->fetch_row();
 
-if($_SESSION['edita'] == 1){
+		//Si la variable row=0 (no hi ha cap cita en aquell dia i  hora) fa un insert amb el num_carril=1, si existeix alguna cita, ho fa amb el num_carril=2
+		if($row[0] == 0){
+			//Variable que conté la consulta per inserir les dades
+			$sql =  "UPDATE Reserva SET matricula='$matricula', dia='$dia', hora='$hora', num_carril=1, id_centre=1,tipus_vehicle='turismo', nom='$nom', cognom='$cognom', tlf=$telefon, mail='$email' WHERE id='$id';";
+			$result = $conn->query($sql);
 
+			echo "<div id='retorna'>";
+			if ($conn->query($sql) === TRUE) {
+				header('Location: ../confirmacio.php');
+			} else {
+    			echo "Error: " . $sql . "<br>" . $conn->error;
+    			echo "<br><a href=\"javascript:history.go(-1)\">GO BACK</a>";
 
-	$comprova =  "SELECT count(*) FROM Reserva WHERE dia='$dia' AND hora='$hora';";
+			}
+			echo"</div>";
 
-	//Variable on es guarda el resultat de la consulta
-$result = $conn->query($comprova);
+		//Si hi ha una cita en un mateix dia i hora:
+		}elseif ($result == 1){
+			//Variable que conté la consulta per inserir les dades
+			$sql =  "UPDATE Reserva SET matricula='$matricula', dia='$dia', hora='$hora', num_carril=2, id_centre=1,tipus_vehicle='turismo', nom='$nom', cognom='$cognom', tlf=$telefon, mail='$email' WHERE id='$id';";
+			echo "<div id='retorna'>";
+			if ($conn->query($sql) === TRUE) {
+				header('Location: ../confirmacio.php');
+			} else {
+    			echo "Error: " . $sql . "<br>" . $conn->error;
+    			echo "<br><a href=\"javascript:history.go(-1)\">GO BACK</a>";
+			}
+			echo"</div>";
+		}
+	} else {
+		//Creació de l'ID a partir de la funció time() i la matricula del vehicle
+		$id = time().''.$matricula;
 
-//Variable per sebre les files;
-$row=$result->fetch_row();
+		//Consulta per sebre si hi ha cites en una certa hora a un cert dia
+		$sql =  "SELECT count(*) FROM Reserva WHERE dia='$dia' AND hora='$hora';";
 
-/*Si la variable row=0 (no hi ha cap cita en aquell dia i  hora) fa un insert amb el num_carril=1, si existeix alguna cita
-ho fa amb el num_carril=2*/
-if($row[0] == 0){
+		//Variable on es guarda el resultat de la consulta
+		$result = $conn->query($sql);
 
-//Variable que conté la consulta per inserir les dades
-$sql =  "UPDATE Reserva SET matricula='$matricula', dia='$dia', hora='$hora', num_carril=1, id_centre=1,tipus_vehicle='turismo', nom='$nom', cognom='$cognom', tlf=$telefon, mail='$email' WHERE id='$id' ";
-	$result = $conn->query($sql);
+		//Variable per sebre les files;
+		$row=$result->fetch_row();
 
-echo "<div id='retorna'>";
-if ($conn->query($sql) === TRUE) {
+		//Si la variable row=0 (no hi ha cap cita en aquell dia i  hora) fa un insert amb el num_carril=1, si existeix alguna cita, ho fa amb el num_carril=2
+		if($row[0] == 0){
+			//Variable que conté la consulta per inserir les dades
+			$sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',1,1,'turismo','".$nom."','".$cognom."','".$telefon."','".$email."')";
 
-	header('Location: ../confirmacio.php');
-   
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-    echo "<br><a href=\"javascript:history.go(-1)\">GO BACK</a>";
+			echo "<div id='retorna'>";
+			if ($conn->query($sql) === TRUE) {
+				$_SESSION["accio"] = "crear";
+					header('Location: ../confirmacio.php');
+			} else {
+    			echo "Error: " . $sql . "<br>" . $conn->error;
+    			echo "<br><a href=\"javascript:history.go(-1)\">GO BACK</a>";
+			}
+			echo"</div>";
 
-}
-echo"</div>";
+		//Si hi ha una cita en un mateix dia i hora:
+		}elseif ($result == 1){
+			//Variable que conté la consulta per inserir les dades
+			$sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',2,1,'turismo','".$nom."','".$cognom."','".$telefon."','".$email."')";
 
-//Si hi ha una cita en un mateix dia i hora:
-}elseif ($result == 1){
-	
+			echo "<div id='retorna'>";
+			if ($conn->query($sql) === TRUE) {
+				$_SESSION["accio"] = "crear";
+				header('Location: ../confirmacio.php');
+			} else {
+    			echo "Error: " . $sql . "<br>" . $conn->error;
+    			echo "<br><a href=\"javascript:history.go(-1)\">GO BACK</a>";
+			}
+			echo"</div>";
+		}
 
-//Variable que conté la consulta per inserir les dades
-$sql =  "UPDATE Reserva SET matricula='$matricula', dia='$dia', hora='$hora', num_carril=2, id_centre=1,tipus_vehicle='turismo', nom='$nom', cognom='$cognom', tlf=$telefon, mail='$email' WHERE id='$id' ";
-
-echo "<div id='retorna'>";
-if ($conn->query($sql) === TRUE) {
-
-	header('Location: ../confirmacio.php');
-   
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-    echo "<br><a href=\"javascript:history.go(-1)\">GO BACK</a>";
-
-}
-echo"</div>";
-}
-
-
-
-}
-
-else {
-
-//Creació de l'ID a partir de la funció time() i la matricula del vehicle
-$id = time().''.$matricula;
-
-//Consulta per sebre si hi ha cites en una certa hora a un cert dia
-$sql =  "SELECT count(*) FROM Reserva WHERE dia='$dia' AND hora='$hora';";
-
-//Variable on es guarda el resultat de la consulta
-$result = $conn->query($sql);
-
-//Variable per sebre les files;
-$row=$result->fetch_row();
-
-/*Si la variable row=0 (no hi ha cap cita en aquell dia i  hora) fa un insert amb el num_carril=1, si existeix alguna cita
-ho fa amb el num_carril=2*/
-if($row[0] == 0){
-
-//Variable que conté la consulta per inserir les dades
-$sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',1,1,'turismo','".$nom."','".$cognom."','".$telefon."','".$email."')";
-
-echo "<div id='retorna'>";
-if ($conn->query($sql) === TRUE) {
-	$_SESSION["accio"] = "crear";
-	header('Location: ../confirmacio.php');
-   
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-    echo "<br><a href=\"javascript:history.go(-1)\">GO BACK</a>";
-
-}
-echo"</div>";
-
-//Si hi ha una cita en un mateix dia i hora:
-}elseif ($result == 1){
-	
-
-//Variable que conté la consulta per inserir les dades
-$sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',2,1,'turismo','".$nom."','".$cognom."','".$telefon."','".$email."')";
-
-echo "<div id='retorna'>";
-if ($conn->query($sql) === TRUE) {
-	$_SESSION["accio"] = "crear";
-	header('Location: ../confirmacio.php');
-   
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-    echo "<br><a href=\"javascript:history.go(-1)\">GO BACK</a>";
-
-}
-echo"</div>";}
-
-//Tanquem la connexió a la BBDD
-$conn->close();
-
-	?>
+		//Tanquem la connexió a la BBDD
+		$conn->close();
+?>

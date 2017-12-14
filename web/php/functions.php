@@ -8,4 +8,9 @@
 		$dia .= substr($date, 0, 4);
 		return $dia;
 	}
+
+	function getResult($conn, $sql) {
+		// retorna el resultat de la consulta
+		return $conn->query($sql);
+	}
 ?>
