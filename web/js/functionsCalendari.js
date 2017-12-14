@@ -130,13 +130,13 @@ var Calendar = (function() {
 					|| (day1==6 && j==5)){
 					aux = true;
 				}
-				/* Pinta els dia d'avui */
+				/* Pinta el dia d'avui
 				if (aux && cont <= dm && tdy.getDate() == cont && tdy.getMonth()+1 == month && tdy.getFullYear() == year){
 					str += '<td class="today nowMonth">'+cont+'</td>';
 					cont++;
-				} 
+				}  */
 				/* Si el dia que pinta es anterior al dia d'avui no el podra seleccionar*/
-				else if(aux && cont <= dm && cont<day){
+				if(aux && cont <= dm && cont<day){
 					str += '<td class="disabled">'+cont+'</td>';
 					cont++;getDataDay
 				} 
