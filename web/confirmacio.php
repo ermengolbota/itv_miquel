@@ -17,17 +17,18 @@
 					require_once "php/functions.php";
 					include "header.php";
 					session_start();
-					if (strcmp($_SESSION["accio"], "crear") == 0) {
+					if (strcmp($_SESSION["accio"], "crear") == 0 || strcmp($_SESSION["accio"], "editar") == 0) {
 						$dia = humanDate($_SESSION["dia"]);
 						$hora = $_SESSION["hora"];
-						if($_SESSION["edita"] == 1){
+						if(strcmp($_SESSION["accio"], "editar") == 0){
 				?>
-						<h2>Cita modificada</h2><?php 
-						}else{
-						?>
-						<h2>Cita creada</h2><?php 
+							<h2>Cita modificada</h2>
+				<?php 
+						} else{
+				?>
+							<h2>Cita creada</h2><?php 
 						}
-						?>
+				?>
 						<p><strong>Dia de la cita:</strong> <?php echo $dia; ?></p>
 						<p><strong>Hora de la cita:</strong> <?php echo $hora; ?></p>
 						<p><strong>Matricula del vehicle:</strong> <?php echo $_SESSION["matricula"]; ?></p>
@@ -35,16 +36,10 @@
 						<p><strong>Cognoms del propietari:</strong> <?php echo $_SESSION["cognom"]; ?></p>
 						<p><strong>Telèfon de contacte:</strong> <?php echo $_SESSION["tlf"]; ?></p>
 						<p><strong>Correo de contacte:</strong> <?php echo $_SESSION["email"]; ?></p>
-						<p></p>
-						<p></p>
 				<?php
 					} elseif (strcmp($_SESSION["accio"], "borrar") == 0) {
 						# code...
-					}
-					elseif ($_SESSION["edita"] == 1) {
-						header('Location: ./confirmacio.php');
-						}
-					 else {
+					} else {
 						header('Location: ./');
 					}
 				?>

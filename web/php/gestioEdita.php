@@ -9,7 +9,7 @@
 		$_SESSION["tlf"] = $_POST["tlf"];
 		$_SESSION["email"] = $_POST["email"];
 		$_SESSION["id"] = $_POST["id"];
-		$_SESSION['edita'] = 1;
+		$_SESSION['accio'] = "editar";
 		header('Location: ../calendari.php');
 	} else {
 		// si no s'arriba a la pàg amb el comportament predeterminat, redirecciona a l'index

@@ -31,7 +31,7 @@
 	if($_SESSION['val_matricula']==0){
 			$matricula = $_SESSION['matricula'];
 		$_SESSION['val_matricula']++;
-		$_SESSION['hour'] = $_GET['hour'];
+		$_SESSION['hora'] = $_GET['hour'];
 	}else
 	$_SESSION['matricula'] = $_POST['matricula'];
 
@@ -61,7 +61,7 @@
 	        <?php
 	        
 	        echo $_SESSION['matricula'];
-	        if($_SESSION['edita'] == 1){
+	        if(strcmp($_SESSION["accio"], "editar") == 0){
 	        ?>
 	        <input type="button" name="edit" id="edit" value="Edita">
 	        </p>
