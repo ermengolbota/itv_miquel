@@ -61,7 +61,7 @@
 	        <?php
 	        
 	        echo $_SESSION['matricula'];
-	        if($_SESSION['edita'] == 1){
+	        if(strcmp($_SESSION["accio"], "editar") == 0){
 	        ?>
 	        <input type="button" name="edit" id="edit" value="Edita">
 	        </p>
