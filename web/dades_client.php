@@ -31,7 +31,7 @@
 	if($_SESSION['val_matricula']==0){
 			$matricula = $_SESSION['matricula'];
 		$_SESSION['val_matricula']++;
-		$_SESSION['hour'] = $_GET['hour'];
+		$_SESSION['hora'] = $_GET['hour'];
 	}else
 	$_SESSION['matricula'] = $_POST['matricula'];
 

@@ -40,9 +40,9 @@
 		$id = time().''.$matricula;
 	}
 
-	if ($_SESSION['edita'] == 1 && $row[0] == 0) {
+	if (strcmp($_SESSION["accio"], "editar") == 0 && $row[0] == 0) {
 		$sql = "UPDATE Reserva SET matricula='$matricula', dia='$dia', hora='$hora', num_carril=1, id_centre=1, tipus_vehicle='turismo', nom='$nom', cognom='$cognom', tlf=$tlf, mail='$email' WHERE id='$id';";
-	} elseif ($_SESSION['edita'] == 1 && $row[0] == 1) {
+	} elseif (strcmp($_SESSION["accio"], "editar") == 0 && $row[0] == 1) {
 		$sql =  "UPDATE Reserva SET matricula='$matricula', dia='$dia', hora='$hora', num_carril=2, id_centre=1, tipus_vehicle='turismo', nom='$nom', cognom='$cognom', tlf=$tlf, mail='$email' WHERE id='$id';";
 	} elseif (strcmp($_SESSION["accio"], "crear") == 0 && $row[0] == 0) {
 		$sql = "INSERT INTO Reserva VALUES ('$id', '$matricula','$dia','$hora',1,1,'turismo','$nom','$cognom','$tlf','$email');";
