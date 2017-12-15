@@ -42,6 +42,7 @@
 					} else {
 						header('Location: ./');
 					}
+					session_destroy();
 				?>
 				<input type="button" onclick="location.href='./';" value="Volver" />
 				<?php include "footer.php"; ?>

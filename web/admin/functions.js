@@ -44,17 +44,17 @@ var Llista = (function(){
 			var minute = "00";
 			var i = 0;
 			var array = controller.getSelect();
+			console.log(array);
 			while(stopH != h){
 				str += "<tr hora='" + h + ":" + minute + ":00' carril='" + carril + "'>";
 				str += "<td>"+ h + ":" + minute + "</td>";
 				str += "<td>" + carril + "</td>";
 				var horaActual = h + ":" + minute + ":00";
-				var writen = false;
 				if (i < array.length && array[i][0] == horaActual && array[i][1] == carril) {
 					for (var j = 2; j < 7; j++) {
 						str += "<td class='full'>" + array[i][j] + "</td>";
-						writen = true;
 					}
+					i++;
 				} else {
 					str += "<td class='free' colspan='5'>Lliure</td>";
 				}
@@ -72,9 +72,6 @@ var Llista = (function(){
 					minute = "00";
 					h++;
 					aux = 0;
-				}
-				if (writen) {
-					i++;
 				}
 			}
 			$("table").html(str);
