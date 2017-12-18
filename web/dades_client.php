@@ -9,9 +9,8 @@
 	<link rel="stylesheet" href="css/myitvdesign.css">
 	<script src="lib/jquery.js"></script>
 	<script src="js/functionsDadesCli.js"></script>
-
-<meta charset="utf-8" />
-<title>Dades_client</title>
+	<meta charset="utf-8" />
+	<title>Dades_client</title>
 </head>
 
 

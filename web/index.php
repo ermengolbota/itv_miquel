@@ -8,8 +8,8 @@
  <script src="lib/jquery.js"></script>
  <script src="js/functionsIndex.js"></script>
 <meta charset="utf-8" />
-</head>
 <title>IAMotors</title>
+</head>
 <script type="text/javascript">
 $(document).ready(function(){ 
 initControls();
