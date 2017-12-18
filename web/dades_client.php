@@ -60,11 +60,14 @@
 						
 	        <p id="old_matricula">
 	        <?php
-	         if($_SESSION["fix_matricula"]==1){
-		echo "<font color='red'>Introdueix la teva matricula </font>";
-		$_SESSION["fix_matricula"] = 0;}
+	        if($_SESSION["fix_matricula"]==1)
+	        {
+				echo "<font color='red'>Introdueix la teva matricula </font>";
+				$_SESSION["fix_matricula"] = 0;
+			}
 	        echo $_SESSION['matricula'];
-	        if(strcmp($_SESSION["accio"], "editar") == 0){
+	        if(strcmp($_SESSION["accio"], "editar") == 0)
+	        {
 	        ?>
 	        <body>
 	        <input type="button" name="edit" id="edit" value="Edita">
@@ -75,8 +78,9 @@
 	         <input name="email" type="email" id="email" value="<?php echo $_SESSION['email']?>" /><br />
 	        <input type="submit" id="submit" value="Enviar">
 	    </form>
-	    <?php } else {?>
-	     <input type="button" name="edit" id="edit" value="Edita">
+	    	<?php 
+			} else {?>
+	     	<input type="button" name="edit" id="edit" value="Edita">
 	        </p>
 	        <input name="nom_propietari" type="text" id="nom_propietari" placeholder="Nom Propietari" required="Obligatori" /><br />
 	        <input name="cognom_propietari" type="text" id="cognom_propietari" placeholder="Cognom Propietari" required="Obligatori" /><br />
