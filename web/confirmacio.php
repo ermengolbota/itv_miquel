@@ -16,7 +16,7 @@
 				<?php
 				if($matricula==""){
 	$_SESSION["fix_matricula"]=1;
-	header('Location: /dades_client.php');
+	header('Location: ./dades_client.php');
 }
 					require_once "php/functions.php";
 					include "header.php";
