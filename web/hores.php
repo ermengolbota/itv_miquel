@@ -11,43 +11,47 @@
 
 <body>
 	<?php 
-	session_start();
+	// Comprova que existeixen aquestes variables
+	if (isset($_GET["day"]) && isset($_GET["month"]) && isset($_GET["year"])) {
+		require_once 'php/horesFunctions.php';
+		require_once 'php/config.php';
+		require_once 'php/functions.php';
+		// Comprova que les dades siguin números i sigui una data correcta
+		if(validateDate($_GET["day"],$_GET["month"],$_GET["year"])){
+			session_start();
 
-	/*if($_SESSION['block'] == 1){
-		header("Location: block.php");
-	}else{
-	$_SESSION['block'] = 1;*/
+			/*if($_SESSION['block'] == 1){
+				header("Location: block.php");
+			}else{
+			$_SESSION['block'] = 1;*/
+			$day = $_GET['day'];
+			$month = $_GET['month'];
+			$year = $_GET['year'];
+	
+			$_SESSION['dia'] = $year."-".$month."-".$day;
+			$matricula = $_SESSION['matricula'];
+		  	$_SESSION['val_matricula'] = 0;
 
-	$day = $_GET['day'];
-	$month = $_GET['month'];
-	$year = $_GET['year'];
-	$_SESSION['dia'] = $year."-".$month."-".$day;
-	$matricula = $_SESSION['matricula'];
-  	$_SESSION['val_matricula'] = 0;
-
-	require_once 'php/horesFunctions.php';
-	require_once 'php/config.php';
-	require_once 'php/functions.php';
-
-	$conn = connect();
-		if ($conn->connect_error) {
-	    	$_SESSION['error'] = 1;
-			header('Location: error.php');
-		} 	
-  	$query = isFull($day,$month,$year);
-  	$result = getResult($conn,$query);
-  	$array[0][0] = "";
-		if ($result->num_rows > 0) {
-			$i = 0;
-			while ($row = $result->fetch_row()) {
-				for ($j = 0; $j < 8; $j++) { 
-					$array[$i][$j] = $row[$j];
+			$conn = connect();
+				if ($conn->connect_error) {
+			    	$_SESSION['error'] = 1;
+					header('Location: error.php');
+				} 	
+			//Funció que comprova si en la data seleccionada hi ha hores completes per que no hi pugui elegir
+		  	$query = isFull($day,$month,$year);
+		  	$result = getResult($conn,$query);
+		  	$array[0][0] = "";
+				if ($result->num_rows > 0) {
+					$i = 0;
+					while ($row = $result->fetch_row()) {
+						for ($j = 0; $j < 8; $j++) { 
+							$array[$i][$j] = $row[$j];
+						}
+						$i++;
+					}
 				}
-				$i++;
-			}
-		}
-	close($conn);
-	?>
+			close($conn);
+		?>
 <div class="container">
 	<div class="row">
     	<div class="twelve columns">
@@ -55,11 +59,19 @@
     		<?php echo "<h1 class='titleIndex'>".$day."/".$month."/".$year."</h1>"; ?>
     		<div id="taulaHores" >
     		<script language="javascript">
+    			// Es passa via json al js un array on et diu totes les cites del dia elegit i crea la taula
     			var jArray = <?php echo json_encode($array); ?>;
     			$('#taulaHores').html(TableHora.crea(jArray));
     			TableHora.hora();
     		</script>
-    		<?php include "footer.php" ?>
+    		<?php 
+    		include "footer.php";
+    			} else {
+    				header('Location: ./');
+    			}
+    		} else {
+    			header('Location: ./');
+    		} ?>
     	</div>
   	</div>
 </div>

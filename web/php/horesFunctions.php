@@ -4,4 +4,24 @@
  	return "SELECT hora FROM Reserva WHERE dia = '$date' ORDER BY hora ASC ";
  }
 
+ function validateNum($data){
+ 	if(is_numeric($data)){
+ 		return 1;
+ 	} else {
+ 		return 0;
+ 	}
+ }
+
+ function validateDate($day,$month,$year){
+ 	$d = validateNum($day);
+ 	$m = validateNum($month);
+ 	$y = validateNum($year);
+ 	if($d && $m && $y){
+ 		return checkdate($month,$day,$year);
+ 	} else {
+ 		return false;
+ 	}
+ 	
+ }
+
 ?>
