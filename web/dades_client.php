@@ -9,9 +9,8 @@
 	<link rel="stylesheet" href="css/myitvdesign.css">
 	<script src="lib/jquery.js"></script>
 	<script src="js/functionsDadesCli.js"></script>
-
-<meta charset="utf-8" />
-<title>Dades_client</title>
+	<meta charset="utf-8" />
+	<title>Dades_client</title>
 </head>
 
 
@@ -35,6 +34,8 @@
 	}else
 	$_SESSION['matricula'] = $_POST['matricula'];
 
+	
+
 	?>
 	<div class="container">
 	<div class="row">
@@ -46,7 +47,7 @@
 				<td class="noBorder">
 				<div id="edit_matricula">
 					<form action="dades_client.php" method="POST">
-	        			<input name="matricula" type="text" id="new_matricula" placeholder="Matricula" />
+	        			<input name="matricula" type="text" id="new_matricula" placeholder="Matricula" required="Obligatori"/>
 	        			<br />
 	       				<input type="submit" id="edit_refresh" value="Edita">
 	    			</form>
@@ -59,25 +60,32 @@
 						
 	        <p id="old_matricula">
 	        <?php
-	        
+	        if($_SESSION["fix_matricula"]==1)
+	        {
+				echo "<font color='red'>Introdueix la teva matricula </font>";
+				$_SESSION["fix_matricula"] = 0;
+			}
 	        echo $_SESSION['matricula'];
-	        if(strcmp($_SESSION["accio"], "editar") == 0){
+	        if(strcmp($_SESSION["accio"], "editar") == 0)
+	        {
 	        ?>
+	        <body>
 	        <input type="button" name="edit" id="edit" value="Edita">
 	        </p>
-	        <input name="nom_propietari" type="text" id="nom_propietari" value="<?php echo $_SESSION['nom']?>" /><br />
+	        <input name="nom_propietari" type="text" id="nom_propietari" value="<?php echo $_SESSION['nom']?>"  /><br />
 	        <input name="cognom_propietari" type="text" id="cognom_propietari" value="<?php echo  $_SESSION['cognom']?>" /><br />
 	           <input name="telefon" type="text" id="telefon" value="<?php echo $_SESSION['tlf']?>" /><br />
 	         <input name="email" type="email" id="email" value="<?php echo $_SESSION['email']?>" /><br />
 	        <input type="submit" id="submit" value="Enviar">
 	    </form>
-	    <?php } else {?>
-	     <input type="button" name="edit" id="edit" value="Edita">
+	    	<?php 
+			} else {?>
+	     	<input type="button" name="edit" id="edit" value="Edita">
 	        </p>
-	        <input name="nom_propietari" type="text" id="nom_propietari" placeholder="Nom Propietari" /><br />
-	        <input name="cognom_propietari" type="text" id="cognom_propietari" placeholder="Cognom Propietari" /><br />
-	           <input name="telefon" type="text" id="telefon" placeholder="Telefon" /><br />
-	         <input name="email" type="email" id="email" placeholder="email" /><br />
+	        <input name="nom_propietari" type="text" id="nom_propietari" placeholder="Nom Propietari" required="Obligatori" /><br />
+	        <input name="cognom_propietari" type="text" id="cognom_propietari" placeholder="Cognom Propietari" required="Obligatori" /><br />
+	           <input name="telefon" type="text" id="telefon" placeholder="Telefon" required="Obligatori" /><br />
+	         <input name="email" type="email" id="email" placeholder="email" required="Obligatori" /><br />
 	        <input type="submit" id="submit" value="Enviar">
 	    </form><?php }?>
 

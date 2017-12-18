@@ -3,6 +3,10 @@ $(document).ready(function() {
 	//Amaga el camp per editar la matricula
 $('#edit_matricula').hide();
 
+//Quan l'usuari apreta F5, crida la funcio
+//$(document).on("keydown", disableF5);
+
+
 //si a l'ID new_matricula es fa un focus out
 $('#new_matricula').on("focusout",function () {
 		 var buit = document.getElementById("new_matricula").value;
