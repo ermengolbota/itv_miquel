@@ -1,9 +1,11 @@
 <?php
 	if ($_POST) {
-		echo "<form method='POST' action='".$_SERVER['PHP_SELF']."'>
-				<input type='text' name='pass' required />
-				<input type='submit' value='Envia' />
-			</form>";
+?>
+		<form method='POST' action="<?php echo $_SERVER['PHP_SELF']; ?>">
+			<input type='text' name='pass' required />
+			<input type='submit' value='Envia' />
+		</form>
+<?php
 	} else {
 		// Password to be encrypted for a .htpasswd file
 		$pass = $_POST['pass'];
