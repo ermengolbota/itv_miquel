@@ -1,5 +1,5 @@
 <?php
-	if ($_POST) {
+	if (!$_POST) {
 ?>
 		<form method='POST' action="<?php echo $_SERVER['PHP_SELF']; ?>">
 			<input type='text' name='pass' required />
