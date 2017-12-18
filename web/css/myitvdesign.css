@@ -232,3 +232,19 @@ li, li a {
 	font-weight: bold;
 	background-color: #FFEEDA;
 }
+
+/* Part confirmació i elimina */
+.pCentered {
+	position: relative;
+	margin-bottom: 2.5em;
+}
+
+.pCentered p {
+	margin: 0;
+	margin-left: 26em;
+}
+
+.butCenter {
+	width: 100%;
+	margin-left: 28em;
+}

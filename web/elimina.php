@@ -18,15 +18,17 @@
 					include "header.php";
 					if (isset($_POST["deleteEntry"])) {
 				?>
-						<h1>Vols eliminar la següent cita?</h1>
-						<p>Matricula: <?php echo $_POST["matricula"]; ?></p>
-						<p>Dia: <?php echo $_POST["dia"]; ?></p>
-						<p>Hora: <?php echo $_POST["hora"]; ?></p>
-						<p>Nom: <?php echo $_POST["nom"]; ?></p>
-						<p>Cognom: <?php echo $_POST["cognom"]; ?></p>
-						<p>Tlf.: <?php echo $_POST["tlf"]; ?></p>
-						<p>Email: <?php echo $_POST["email"]; ?></p>
-						<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" />
+				<h1>Vols eliminar la següent cita?</h1>
+				<div class="pCentered">
+						<p><strong>Matricula:</strong> <?php echo $_POST["matricula"]; ?></p>
+						<p><strong>Dia:</strong> <?php echo $_POST["dia"]; ?></p>
+						<p><strong>Hora:</strong> <?php echo $_POST["hora"]; ?></p>
+						<p><strong>Nom:</strong> <?php echo $_POST["nom"]; ?></p>
+						<p><strong>Cognom:</strong> <?php echo $_POST["cognom"]; ?></p>
+						<p><strong>Tlf.:</strong> <?php echo $_POST["tlf"]; ?></p>
+						<p><strong>Email:</strong> <?php echo $_POST["email"]; ?></p>
+				</div>
+					<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" />
 							<input type="hidden" name="id" value="<?php echo $_POST["id"]; ?>" />
 							<input type="submit" name="confirm" value="Confirmar" />
 						</form>

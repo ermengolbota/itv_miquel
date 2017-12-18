@@ -35,6 +35,7 @@
 							<h2>Cita creada</h2><?php 
 						}
 				?>
+				<div class="pCentered">
 						<p><strong>Dia de la cita:</strong> <?php echo $dia; ?></p>
 						<p><strong>Hora de la cita:</strong> <?php echo $hora; ?></p>
 						<p><strong>Matricula del vehicle:</strong> <?php echo $_SESSION["matricula"]; ?></p>
@@ -42,17 +43,18 @@
 						<p><strong>Cognoms del propietari:</strong> <?php echo $_SESSION["cognom"]; ?></p>
 						<p><strong>Telèfon de contacte:</strong> <?php echo $_SESSION["tlf"]; ?></p>
 						<p><strong>Correo de contacte:</strong> <?php echo $_SESSION["email"]; ?></p>
+				</div>
 				<?php
 					} elseif (strcmp($_SESSION['accio'], "borrar") == 0) {
 				?>
-						<h2>Cita eliminada</h2>
+					<h2>Cita eliminada</h2>
 				<?php
 					} else {
 						header('Location: ./');
 					}
 					session_destroy();
 				?>
-				<input type="button" onclick="location.href='./';" value="Volver" />
+				<div class="butCenter"><input type="button" onclick="location.href='./';" value="Torna" /></div>
 				<?php include "footer.php"; ?>
 			</div>
 		</div>
