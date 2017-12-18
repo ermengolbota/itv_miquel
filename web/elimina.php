@@ -32,6 +32,7 @@
 						</form>
 				<?php
 					} elseif (isset($_POST["confirm"])) {
+						session_start();
 						require_once 'php/config.php';
 						require_once 'php/eliminaFunctions.php';
 						$conn = connect();
@@ -44,9 +45,8 @@
 							$sql = createSQL($id);
 							if (getResult($conn, $sql) === TRUE) {
 								close($conn);
-								$_SESSION['accio'] = 'borrar';
+								$_SESSION["accio"] = "borrar";
 								header('Location: confirmacio.php');
-								//echo "Record deleted successfully";
 							} else {
 								close($conn);
 								$_SESSION['error'] = 0;

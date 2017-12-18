@@ -37,7 +37,7 @@
 						<p><strong>Telèfon de contacte:</strong> <?php echo $_SESSION["tlf"]; ?></p>
 						<p><strong>Correo de contacte:</strong> <?php echo $_SESSION["email"]; ?></p>
 				<?php
-					} elseif (strcmp($_SESSION["accio"], "borrar") == 0) {
+					} elseif (strcmp($_SESSION['accio'], "borrar") == 0) {
 				?>
 						<h2>Cita eliminada</h2>
 				<?php
