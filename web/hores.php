@@ -11,10 +11,12 @@
 
 <body>
 	<?php 
+	// Comprova que existeixen aquestes variables
 	if (isset($_GET["day"]) && isset($_GET["month"]) && isset($_GET["year"])) {
 		require_once 'php/horesFunctions.php';
 		require_once 'php/config.php';
 		require_once 'php/functions.php';
+		// Comprova que les dades siguin números i sigui una data correcta
 		if(validateDate($_GET["day"],$_GET["month"],$_GET["year"])){
 			session_start();
 
@@ -35,6 +37,7 @@
 			    	$_SESSION['error'] = 1;
 					header('Location: error.php');
 				} 	
+			//Funció que comprova si en la data seleccionada hi ha hores completes per que no hi pugui elegir
 		  	$query = isFull($day,$month,$year);
 		  	$result = getResult($conn,$query);
 		  	$array[0][0] = "";
@@ -56,6 +59,7 @@
     		<?php echo "<h1 class='titleIndex'>".$day."/".$month."/".$year."</h1>"; ?>
     		<div id="taulaHores" >
     		<script language="javascript">
+    			// Es passa via json al js un array on et diu totes les cites del dia elegit i crea la taula
     			var jArray = <?php echo json_encode($array); ?>;
     			$('#taulaHores').html(TableHora.crea(jArray));
     			TableHora.hora();
