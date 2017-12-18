@@ -36,7 +36,7 @@
 						require_once 'php/eliminaFunctions.php';
 						$conn = connect();
 						if ($conn->connect_error) {
-		    				die("Connection failed: " . $conn->connect_error);
+		    				$_SESSION['error'] = 1;
 		    				header('Location: error.php');
 						}
 						$id = $_POST["id"];
@@ -44,14 +44,18 @@
 							$sql = createSQL($id);
 							if (getResult($conn, $sql) === TRUE) {
 								close($conn);
-								echo "Record deleted successfully";
+								$_SESSION['accio'] = 'borrar';
+								header('Location: confirmacio.php');
+								//echo "Record deleted successfully";
 							} else {
 								close($conn);
+								$_SESSION['error'] = 0;
 								header('Location: error.php');
 							}
 						} else {
 							header('Location: ./');
 						}
+						close($conn);
 					} else {
 						header('Location: ./');
 					}

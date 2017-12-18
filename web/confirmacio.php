@@ -38,7 +38,9 @@
 						<p><strong>Correo de contacte:</strong> <?php echo $_SESSION["email"]; ?></p>
 				<?php
 					} elseif (strcmp($_SESSION["accio"], "borrar") == 0) {
-						# code...
+				?>
+						<h2>Cita eliminada</h2>
+				<?php
 					} else {
 						header('Location: ./');
 					}
