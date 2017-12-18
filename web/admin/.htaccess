@@ -1,4 +1,3 @@
-AllowOverride All
 AuthType Basic
 AuthName "Àrea d'administració"
 AuthUserFile ../../.htpasswd

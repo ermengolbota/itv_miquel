@@ -1,4 +1,3 @@
-CREATE DATABASE IAMotors;
 USE IAMotors;
 
 CREATE TABLE Centre (
