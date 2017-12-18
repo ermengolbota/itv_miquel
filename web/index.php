@@ -9,6 +9,7 @@
  <script src="js/functionsIndex.js"></script>
 <meta charset="utf-8" />
 </head>
+<title>IAMotors</title>
 <script type="text/javascript">
 $(document).ready(function(){ 
 initControls();
@@ -37,7 +38,7 @@ window.onhashchange=function(){window.location.hash="red";}
     	<h1 class="titleIndex">Benvingut a IAMotors</h1>
 
     	<!-- Formulari per inserir la matricula i mirar si existeix a la BBDD-->
-        <form action="php/index_comprova.php" method="POST">
+        <form action="php/index_comprova.php" method="POST" id="frm">
             <label class="form">Matricula: <input name="matricula" type="text" id="matricula" size="36" required="Tienes que rellenar este campo"></label>
             <input type="submit" id="submit" value="Enviar">
         </form>
