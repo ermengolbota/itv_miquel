@@ -22,8 +22,8 @@
 	$cognom = $_SESSION['cognom'];
 	$email = $_SESSION['email'];
 
-if($matricula==""){
-	$_SESSION["fix_matricula"]=1;
+	if($matricula==""){
+	$_SESSION["fix_matricula"]=
 	header('Location: ../dades_client.php');
 }
 	// Create connection
