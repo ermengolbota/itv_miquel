@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- <html>
+<html>
 <head>
   <!-- Part css -->
  <link rel="stylesheet" href="lib/normalize.css">
