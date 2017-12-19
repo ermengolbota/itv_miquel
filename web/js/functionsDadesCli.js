@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	
+	var error = 0;
 	//Amaga el camp per editar la matricula
 	$('#edit_matricula').hide();
 
@@ -61,8 +62,9 @@ $(document).ready(function() {
 	});
 
 	$("#telefon").focusout(function(){
-		var num = $("#telefon").text();
-		if (!/^([0-9])*$/.test(num)){
+		var num = $("#telefon").val();
+		console.log(num);
+		if (!/^\d{9}$/.test(num)){
 			error=1;
 			$("#telefon").css("background-color","#ff5050");
 		} else {
