@@ -121,7 +121,7 @@ var Calendar = (function() {
 						|| (day1==6 && k==5)){
 							break;
 						}
-						days++;getDataDay
+						days++;
 					}
 				}
 				/* Avisa de que es alla on comenca el dia 1 del mes obtingut */
@@ -142,7 +142,11 @@ var Calendar = (function() {
 				} 
 				// Dies que l'usuari podra seleccionar
 				else if(aux && cont <= dm && cont>=day){
-					str += '<td class="nowMonth">'+cont+'</td>';
+					if(j==5||j==6){
+						str += '<td class="disabled">'+cont+'</td>';
+					} else {
+						str += '<td class="nowMonth">'+cont+'</td>';
+					}
 					cont++;
 				}
 				/* Pinta els dies del mes seguent despres del obtingut */
