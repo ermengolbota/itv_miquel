@@ -12,7 +12,7 @@
 	} 
 
 	//Es guarda la matricula passada per POST
-	$matricula = $_POST['matricula'];
+	$matricula = strtoupper($_POST['matricula']);
 
 	//Es guarda una variable de sessió de la matricula (servirà per passar la matricula entre els fitxers)
 	$_SESSION['matricula']= $matricula;

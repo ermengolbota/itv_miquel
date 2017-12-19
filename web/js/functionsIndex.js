@@ -30,7 +30,7 @@ var error=0;
 var pattern = /^\d\d\d\d[BCDFGHJKLMNPRSTVWXYZ]{3}$/ ;
 
 //Si no es correcte el patró, pinta el color de fons vermell i guarda una variable d'error = 1
-if (!pattern.test($('#matricula').val())) {
+if (!pattern.test($('#matricula').val().toUpperCase())) {
 
 	error=1;
 
