@@ -34,8 +34,6 @@
 	}else
 	$_SESSION['matricula'] = $_POST['matricula'];
 
-	
-
 	?>
 	<div class="container">
 	<div class="row">
