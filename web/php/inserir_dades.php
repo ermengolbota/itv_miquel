@@ -89,7 +89,7 @@
 		//Si la variable row=0 (no hi ha cap cita en aquell dia i  hora) fa un insert amb el num_carril=1, si existeix alguna cita, ho fa amb el num_carril=2
 		if($row[0] == 0){
 			//Variable que conté la consulta per inserir les dades
-			$sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',1,1,'turismo','".$nom."','".$cognom."','".$telefon."','".$email."')";
+			$sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',1,1,'turismo','".$nom."','".$cognom."','".$tlf."','".$email."')";
 
 			echo "<div id='retorna'>";
 			if ($conn->query($sql) === TRUE) {
@@ -104,7 +104,7 @@
 		//Si hi ha una cita en un mateix dia i hora:
 		}elseif ($result == 1){
 			//Variable que conté la consulta per inserir les dades
-			$sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',2,1,'turismo','".$nom."','".$cognom."','".$telefon."','".$email."')";
+			$sql = "INSERT INTO Reserva VALUES ('".$id."', '".$matricula."','".$dia."','".$hora."',2,1,'turismo','".$nom."','".$cognom."','".$tlf."','".$email."')";
 
 			echo "<div id='retorna'>";
 			if ($conn->query($sql) === TRUE) {
