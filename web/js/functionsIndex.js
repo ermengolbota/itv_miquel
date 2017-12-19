@@ -2,12 +2,12 @@ $(document).ready(function() {
 
 //Evitar que l'usuari pugui tornar enrera, això evita que una vegada inserides les dades,
 //L'usuari torni enrera i les posi de nou
-initControls();
+/*initControls();
 function initControls(){
 window.location.hash="red";
 window.location.hash="Red" //chrome
 window.onhashchange=function(){window.location.hash="red";}
- }
+ }*/
 
 
 

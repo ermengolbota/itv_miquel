@@ -10,18 +10,6 @@
 <meta charset="utf-8" />
 <title>IAMotors</title>
 </head>
-<script type="text/javascript">
-$(document).ready(function(){ 
-initControls();
-});
-
-//Codi per no permetre tornar enrera (així s'evita dues insercions a la BBDD)
-function initControls(){
-window.location.hash="red";
-window.location.hash="Red" //chrome
-window.onhashchange=function(){window.location.hash="red";}
-}
-</script>
 <body>
 	<?php
 	//Inici de la sessió
@@ -29,7 +17,6 @@ window.onhashchange=function(){window.location.hash="red";}
     //Es guarda la matricula en una variable
     $matricula = $_POST['matricula'];
     $_SESSION['block'] = 0;
-    $_SESSION['edita'] = 0;
 ?>
 <div class="container">
 <div class="row">

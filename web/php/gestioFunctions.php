@@ -11,6 +11,6 @@
 
 	function createSQL($matricula) {
 		// retorna la consulta SQL per la matricula
-		return "SELECT matricula, dia, hora, nom, cognom, tlf, mail, id FROM Reserva WHERE matricula LIKE '$matricula';";
+		return "SELECT matricula, dia, hora, nom, cognom, tlf, mail, id FROM Reserva WHERE matricula = '$matricula' AND dia > CURDATE() OR matricula = '$matricula' AND dia = CURDATE() AND hora > CURTIME();";
 	}
 ?>

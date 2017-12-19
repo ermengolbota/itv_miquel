@@ -16,7 +16,7 @@
 
 <body>
 	<?php session_start();
- 
+ 	include_once "php/functions.php";
 	
 
 	/*if($_SESSION['block'] < 1){
@@ -90,6 +90,7 @@
 				</td>
 			</tr>
 		</table>
+		<div class="positionBtn"><button>Torna</button></div>
 		<?php include "footer.php" ?>
 	</div>
 </div>

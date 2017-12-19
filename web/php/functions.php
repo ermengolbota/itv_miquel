@@ -12,5 +12,5 @@
 	function getResult($conn, $sql) {
 		// retorna el resultat de la consulta
 		return $conn->query($sql);
-	}
+	}	
 ?>

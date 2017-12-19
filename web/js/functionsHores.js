@@ -50,7 +50,6 @@ var TableHora = (function() {
 	 		if(hora%2 != 0){
 				m = 30;
 				var disable = isFull(array,h,m);
-				console.log(disable);
 				if(disable){
 					str += "<td class='disabled'>"+h+":"+m+"</td>";
 				} else {
@@ -62,7 +61,6 @@ var TableHora = (function() {
 	 		} else {
 				m = pad(0,2);
 	 			var disable = isFull(array,h,m);
-	 			console.log(disable);
 				if(disable){
 					str += "<td class='disabled'>"+h+":"+m+"</td>";
 				} else {
@@ -88,6 +86,11 @@ var TableHora = (function() {
 }());
 
 $(document).ready(function(){
+	$(".torna").click(function () {
+    	//window.history.back();
+    	window.location.href = "./calendari.php";
+	});
+
     $(".enabled").hover(function(){
         $(this).css("background-color", "#FF9B21");
         }, function(){
