@@ -28,6 +28,7 @@ These instructions will get you a copy of the project up and running on your loc
   * IMPORTANT, if the recommended name can't or it's not used, change the first line of the file to USE [used database name]; 
 5. [Optional] If you want to change password of the admin part, we recommend doing so, navigate to the myitv directory an run the following command: htpasswd .htpasswd admin
 6. Change the the variables $db_database, db_username, and db_password, located on the path myitv/php/config.php to fit your database
+7. Change the permissions, at least, on the web directory to 755
 
 ## Running the tests ##
 WIP
