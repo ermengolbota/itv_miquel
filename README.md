@@ -17,9 +17,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites ###
 WIP
+* A web server
+* An empty database
 
 ### Installing ###
 WIP
+* On your web server navigate to your web directory, and use the next command: git clone https://a15miqvidgom@bitbucket.org/a15miqvidgom/myitv.git
+* Create a new empty database, we recommend the name 'IAMotors'
+* Import on your database the file createDatabase.sql located on the path myitv/doc/sql
+* [Optional] If you want test data, import on your database the file testData.sql located on the path myitv/doc/sql
+* [Optional] If you want to change password of the admin part, we recommend doing so, navigate to the myitv directory an run the following command: htpasswd .htpasswd admin
 
 ## Running the tests ##
 WIP
