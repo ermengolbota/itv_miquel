@@ -23,9 +23,11 @@ These instructions will get you a copy of the project up and running on your loc
 1. On your web server navigate to your web directory, and use the next command: git clone https://a15miqvidgom@bitbucket.org/a15miqvidgom/myitv.git
 2. Create a new empty database, we recommend the name 'IAMotors'
 3. Import on your database the file createDatabase.sql located on the path myitv/doc/sql
-⋅⋅1. IMPORTANT, if the recommended name can't or it's not used, change the first line of the file to USE [used database name];
-- [Optional] If you want test data, import on your database the file testData.sql located on the path myitv/doc/sql
-- [Optional] If you want to change password of the admin part, we recommend doing so, navigate to the myitv directory an run the following command: htpasswd .htpasswd admin
+  1. IMPORTANT, if the recommended name can't or it's not used, change the first line of the file to USE [used database name];
+4. [Optional] If you want test data, import on your database the file testData.sql located on the path myitv/doc/sql
+  1. IMPORTANT, if the recommended name can't or it's not used, change the first line of the file to USE [used database name]; 
+5. [Optional] If you want to change password of the admin part, we recommend doing so, navigate to the myitv directory an run the following command: htpasswd .htpasswd admin
+6. Change the the variables $db_database, db_username, and db_password, located on the path myitv/php/config.php to fit your database
 
 ## Running the tests ##
 WIP
