@@ -85,7 +85,7 @@ $("#submit").click(function(event){
 	//Si la variable d'error esta a 1, mostra un alert
 	if(error==1){
     event.preventDefault();
-    alert("Corrige la matricula");
+    alert("Corregeix la matrícula");
      }
  });
 

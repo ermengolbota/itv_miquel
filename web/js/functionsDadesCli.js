@@ -41,7 +41,7 @@ $(document).ready(function() {
 	$("#edit_refresh").click(function(event){
 		if(error==1){
 	    event.preventDefault();
-	    alert("Corrige la matricula");
+	    alert("Corregeix la matrícula.");
 	     }
 	 });
 
@@ -56,7 +56,18 @@ $(document).ready(function() {
 	$("#submit").click(function(event){
 		if(error==1){
 	    event.preventDefault();
-	    alert("HI HA ERRORS!");
+	    alert("No et deixis cap camp.");
 	}
+	});
+
+	$("#telefon").focusout(function(){
+		var num = $("#telefon").text();
+		if (!/^([0-9])*$/.test(num)){
+			error=1;
+			$("#telefon").css("background-color","#ff5050");
+		} else {
+			error= 0;
+			$("#telefon").css("background-color","white");
+		}
 	});
 });

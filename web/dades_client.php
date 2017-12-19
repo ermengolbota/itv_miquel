@@ -10,7 +10,7 @@
 	<script src="lib/jquery.js"></script>
 	<script src="js/functionsDadesCli.js"></script>
 	<meta charset="utf-8" />
-	<title>Dades_client</title>
+	<title>IAMotors</title>
 </head>
 
 
