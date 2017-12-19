@@ -12,7 +12,9 @@
 </head>
 <body>
 	<?php
-	//Inici de la sessió
+	//Inici de la sessió i s'assegura que no es porten dades d'alguna sessió anterior
+    session_start();
+    session_destroy();
     session_start();
     //Es guarda la matricula en una variable
     $matricula = $_POST['matricula'];
