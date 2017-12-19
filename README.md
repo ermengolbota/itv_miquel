@@ -16,10 +16,19 @@ MyITV allows you to create and manage ITV appointments with IAMotors.
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites ###
-WIP
+- A web server
+- An empty database
 
 ### Installing ###
-WIP
+1. On your web server navigate to your web directory, and use the next command: git clone https://a15miqvidgom@bitbucket.org/a15miqvidgom/myitv.git
+2. Create a new empty database, we recommend the name 'IAMotors'
+3. Import on your database the file createDatabase.sql located on the path myitv/doc/sql
+  * IMPORTANT, if the recommended name can't or it's not used, change the first line of the file to USE [used database name];
+4. [Optional] If you want test data, import on your database the file testData.sql located on the path myitv/doc/sql
+  * IMPORTANT, if the recommended name can't or it's not used, change the first line of the file to USE [used database name]; 
+5. [Optional] If you want to change password of the admin part, we recommend doing so, navigate to the myitv directory an run the following command: htpasswd .htpasswd admin
+6. Change the the variables $db_database, db_username, and db_password, located on the path myitv/php/config.php to fit your database
+7. Change the permissions, at least, on the web directory to 755
 
 ## Running the tests ##
 WIP
@@ -44,7 +53,7 @@ WIP
 
 ## Authors ##
 * Joan Calafat Sastre
-* Arantxa Cardona Jiménez
+* Arantxa Cardona Jimï¿½nez
 * Miquel Vidal Gomila
 
 ## License ##
@@ -52,33 +61,3 @@ This project is licensed under the GPLv3 - see the [LICENSE.md](https://bitbucke
 
 ## Acknowledgments ##
 WIP
-
--- DELETE FROM HERE
-
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
