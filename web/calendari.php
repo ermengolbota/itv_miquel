@@ -19,7 +19,7 @@
   }else{
   $_SESSION['block'] = 1;
   }*/
- 
+  if(isset($_SESSION['matricula'])){
   ?>
     <div class="container">
   		<div class="row">
@@ -52,5 +52,10 @@
     		</div>
   		</div>
   	</div>
+    <?php
+    } else {
+      header('Location: ./');
+    }
+    ?>
 </body>
 </html>
