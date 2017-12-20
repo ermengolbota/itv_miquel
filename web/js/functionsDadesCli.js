@@ -76,4 +76,36 @@ $(document).ready(function() {
 	});
 
 	
+	
+	$('#email').on("focusout",function () {
+			 var buit = document.getElementById("email").value;
+
+			 //si està buit no fa res
+			if (buit.length == 0) {
+
+				$('#email').css("background-color","white");
+
+			//Si hi ha algun valor comprova el patró
+			}else{
+
+	var pattern =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+
+	//Si el patro no es correcte posa una variable d'error a 1 i pinta el fons vermell
+	if (!pattern.test($('#email').val())) {
+
+		error=1;
+
+	$('#email').css("background-color","#ff5050");
+
+	}
+
+	//Si la matricula està bé posa la variable d'error a 0 i pinta el fons blanc
+	else {
+		error=0;
+		$('#email').css("background-color","white");
+
+	}
+	}
+	});
+
 	});
