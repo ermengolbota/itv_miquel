@@ -45,10 +45,10 @@
 			}
 		}
 		return $true;
-<<<<<<< HEAD
+
 	}	
-=======
-	}
+
+	
 
 	function validateNom(&$string) {
 		if (!empty($string) && is_string($string) && strlen($string)<=20) {
@@ -82,7 +82,4 @@
 		return false;
 	}
 
-
-
 ?>
->>>>>>> a786d7296ae6c966eb15bd914f76b1ebd41ce66f
