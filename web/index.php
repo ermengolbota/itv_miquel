@@ -19,6 +19,7 @@
     //Es guarda la matricula en una variable
     $matricula = $_POST['matricula'];
     $_SESSION['block'] = 0;
+    $_SESSION["enrera"] == 0;
 ?>
 <div class="container">
 <div class="row">

@@ -19,6 +19,7 @@
 		require_once 'php/functions.php';
 		// Comprova que les dades siguin números i sigui una data correcta
 		if(validateDate($_GET["day"],$_GET["month"],$_GET["year"])){
+			if(correctDay($_GET["day"],$_GET["month"],$_GET["year"])){
 			session_start();
 
 			/*if($_SESSION['block'] == 1){
@@ -68,6 +69,9 @@
     		<div class="positionBtn"><button class="torna">Torna</button></div>
     		<?php 
     		include "footer.php";
+    			} else {
+    				header('Location: ./calendari.php');
+    			}
     			} else {
     				header('Location: ./');
     			}

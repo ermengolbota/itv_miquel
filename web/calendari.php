@@ -19,7 +19,9 @@
   }else{
   $_SESSION['block'] = 1;
   }*/
+
   if(isset($_SESSION['matricula'])){
+
   ?>
     <div class="container">
   		<div class="row">
