@@ -1,6 +1,12 @@
 <?php
 	// funcions comunes que s'empren en varies pags.
 	
+	/**
+	 * 
+	 * Retorna la data en format dd/mm/aaaa
+	 * @param  date
+	 * @return Europe date view
+	 */
 	function humanDate($date) {
 		// converteix la data de format Y-m-d a d/m/Y
 		$dia = substr($date, 8, 9) . "/";
@@ -9,12 +15,25 @@
 		return $dia;
 	}
 
+	/**
+	 * 
+	 * Agafa el resultat de la Query SQL
+	 * @param  SQL connection
+	 * @param  SQL Query
+	 * @return Result SQL Query
+	 */
 	function getResult($conn, $sql) {
 		// retorna el resultat de la consulta
 		return $conn->query($sql);
 	}
 
+	/**
+	 * Valida la hora pasada per parametre
+	 * @param  date
+	 * @return int
+	 */
 	function validateHour($hour){
+		 
 		$true = 0;
 		$h = substr($hour, 0, 2);
 		$min = substr($hour, 3, 2);
@@ -27,4 +46,3 @@
 		}
 		return $true;
 	}	
-?>

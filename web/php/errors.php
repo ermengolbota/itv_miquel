@@ -5,7 +5,12 @@
 		1 => "Error de connexió amb la base de dades.",
 		3 => "La hora sel·leccionada ha estat ocupada per un altre usuari durant el procès. Si us plau començi de nou amb una altre hora.",
 		);
-
+	/**
+	 * Mostra quin error s'ha produit i perque ha passat
+	 * 
+	 * @param  error code
+	 * @return Error code text
+	 */
 	function getErrorText($error_code) {
 		global $error_text;
 		return $error_text[$error_code];
