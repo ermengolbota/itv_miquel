@@ -88,7 +88,7 @@ $(document).ready(function() {
 			//Si hi ha algun valor comprova el patró
 			}else{
 
-	var pattern =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/;
+	var pattern =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/; 
 
 	//Si el patro no es correcte posa una variable d'error a 1 i pinta el fons vermell
 	if (!pattern.test($('#email').val())) {
