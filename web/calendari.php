@@ -19,7 +19,11 @@
   }else{
   $_SESSION['block'] = 1;
   }*/
+<<<<<<< HEAD
  $_SESSION["enrera"] == 0;
+=======
+  if(isset($_SESSION['matricula'])){
+>>>>>>> 09c2c5ee88de0be80065033222e467c56a0e39dc
   ?>
     <div class="container">
   		<div class="row">
@@ -52,5 +56,10 @@
     		</div>
   		</div>
   	</div>
+    <?php
+    } else {
+      header('Location: ./');
+    }
+    ?>
 </body>
 </html>

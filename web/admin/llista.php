@@ -28,16 +28,21 @@
 					<li><p class="greetAdmin">Benvingut/da Administrador</p></li>
 					<li><a class="btnMenu" href="dashboard.php">Escriptori</a></li>
 				</ul>
-				<form class="btnLeftList" method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-					<input type="hidden" name="dia" value="<?php calcPrevDay($dia); ?>" />
-					<input type="submit" value="<-" />
-				</form>
+
+				<div class="headerList">
+					<form class="btnLeftList" method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+						<input type="hidden" name="dia" value="<?php calcPrevDay($dia); ?>" />
+						<input type="submit" value="<-" />
+					</form>
+						
+					<h1 class="dia"><?php echo humanDate($dia); ?></h1>
+
 					<form class="btnRightList" method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-					<input type="hidden" name="dia" value="<?php calcNextDay($dia); ?>" />
-					<input type="submit" value="->" />
-				</form>
-					
-				<h1><?php echo humanDate($dia); ?></h1>
+						<input type="hidden" name="dia" value="<?php calcNextDay($dia); ?>" />
+						<input type="submit" value="->" />
+					</form>
+				</div>
+				
 				<table id="<?php echo $dia; ?>"></table>
 				<?php include "footer.php"; ?>
 			</div>

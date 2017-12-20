@@ -18,7 +18,8 @@
 	<?php session_start();
  	include_once "php/functions.php";
 	
-
+	if (isset($_GET["hour"])){
+	if (validateHour($_GET["hour"])){
 	/*if($_SESSION['block'] < 1){
 		header("Location: block.php");
 	}else{
@@ -91,8 +92,21 @@
 				</td>
 			</tr>
 		</table>
+<<<<<<< HEAD
 		<div class="positionBtn"><button class="torna">Hores</button></div>
 		<?php include "footer.php" ?>
+=======
+		<div class="positionBtn"><button>Torna</button></div>
+		<?php 
+		include "footer.php";
+		} else {
+    		header('Location: ./');
+    	}
+    	} else {
+    		header('Location: ./');
+    	}
+		 ?>
+>>>>>>> 09c2c5ee88de0be80065033222e467c56a0e39dc
 	</div>
 </div>
 </div>
