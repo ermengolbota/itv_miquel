@@ -5,6 +5,7 @@
 	$db_password = 'root';
 
 	/**
+	 * Connexió amb la base de dades
 	 * @return Connection Database
 	 */
 	function connect() {
@@ -15,6 +16,7 @@
 	}
 
 	/**
+	 * Tancament de la connexió de la BBDD
 	 * @param  SQL Connection
 	 * @return Close SQL connection
 	 */

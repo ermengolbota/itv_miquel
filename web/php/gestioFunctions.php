@@ -17,6 +17,7 @@
 	}
 
 	/**
+	 * Crea un SELECT SQL per comprovar les cites futures
 	 * @param  matricula del vehicle
 	 * @return SQL Query
 	 */
