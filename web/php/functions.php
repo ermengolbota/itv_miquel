@@ -26,5 +26,40 @@
 			}
 		}
 		return $true;
-	}	
+	}
+
+	function validateNom(&$string) {
+		if (!empty($string) && is_string($string) && strlen($string)<=20) {
+			htmlspecialchars(stripcslashes(trim($string)));
+			return true;
+		}
+		return false;
+	}
+
+	function validateCognom(&$string) {
+		if (!empty($string) && is_string($string) && strlen($string)<=50) {
+			htmlspecialchars(stripcslashes(trim($string)));
+			return true;
+		}
+		return false;
+	}
+
+	function validateTlf(&$string) {
+		if (!empty($string) && preg_match("/^[0-9]{9}$/", $string) && strlen($string)==9) {
+			htmlspecialchars(stripcslashes(trim($string)));
+			return true;
+		}
+		return false;
+	}
+
+	function validateMail(&$string) {
+		if (!empty($string) && filter_var($string, FILTER_VALIDATE_EMAIL) && strlen($string)<=50) {
+			htmlspecialchars(stripcslashes(trim($string)));
+			return true;
+		}
+		return false;
+	}
+
+
+
 ?>
