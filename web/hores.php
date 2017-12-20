@@ -66,7 +66,6 @@
     			$('#taulaHores').html(TableHora.crea(jArray));
     			TableHora.hora();
     		</script>
-    		<div class="positionBtn"><button class="torna">Torna</button></div>
     		<?php 
     		include "footer.php";
     			} else {

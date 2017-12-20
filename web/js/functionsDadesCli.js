@@ -4,8 +4,10 @@ $(document).ready(function() {
 	//Amaga el camp per editar la matricula
 	$('#edit_matricula').hide();
 
-	//Quan l'usuari apreta F5, crida la funcio
-	//$(document).on("keydown", disableF5);
+	$(".torna").click(function () {
+    	//window.history.back();
+    	window.location.href = "./hores.php";
+	});
 
 
 	//si a l'ID new_matricula es fa un focus out
@@ -72,4 +74,38 @@ $(document).ready(function() {
 			$("#telefon").css("background-color","white");
 		}
 	});
-});
+
+	
+	
+	$('#email').on("focusout",function () {
+			 var buit = document.getElementById("email").value;
+
+			 //si està buit no fa res
+			if (buit.length == 0) {
+
+				$('#email').css("background-color","white");
+
+			//Si hi ha algun valor comprova el patró
+			}else{
+
+	var pattern =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/; 
+
+	//Si el patro no es correcte posa una variable d'error a 1 i pinta el fons vermell
+	if (!pattern.test($('#email').val())) {
+
+		error=1;
+
+	$('#email').css("background-color","#ff5050");
+
+	}
+
+	//Si la matricula està bé posa la variable d'error a 0 i pinta el fons blanc
+	else {
+		error=0;
+		$('#email').css("background-color","white");
+
+	}
+	}
+	});
+
+	});

@@ -209,16 +209,26 @@ li, li a {
 
 /* css de llista part admin */
 
-.btnRightList, .btnLeftList{
-	position: fixed;
+.headerList {
+	text-align: center;
 }
 
-.btnLeftList {
-	left: 23em;
+.btnLeftList, .dia, .btnRightList {
+    display: inline-block;
 }
 
-.btnRightList {
-	right: 23em;
+@media screen and (min-width: 1500px) {
+	.btnRightList, .btnLeftList{
+		position: fixed;
+	}
+
+	.btnLeftList {
+		left: 23em;
+	}
+
+	.btnRightList {
+		right: 23em;
+	}
 }
 
 .free {

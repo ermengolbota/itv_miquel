@@ -25,6 +25,7 @@
 	}else{
 	$_SESSION['block'] = 1;
 }*/
+	$_SESSION["enrera"] == 1;
 	?>
 
 	<?php
@@ -71,8 +72,8 @@
 	        <body>
 	        <input type="button" name="edit" id="edit" value="Edita">
 	        </p>
-	        <input name="nom_propietari" type="text" id="nom_propietari" value="<?php echo $_SESSION['nom']?>"  /><br />
-	        <input name="cognom_propietari" type="text" id="cognom_propietari" value="<?php echo  $_SESSION['cognom']?>" /><br />
+	        <input name="nom_propietari" type="text" id="nom_propietari" maxlength="20" value="<?php echo $_SESSION['nom']?>" pattern="[A-Za-z]+" /><br />
+	        <input name="cognom_propietari" type="text" id="cognom_propietari" maxlength="50" pattern="[A-Za-z]+" value="<?php echo  $_SESSION['cognom']?> " /><br />
 	           <input name="telefon" type="text" id="telefon" value="<?php echo $_SESSION['tlf']?>" /><br />
 	         <input name="email" type="email" id="email" value="<?php echo $_SESSION['email']?>" /><br />
 	        <input type="submit" id="submit" value="Enviar">
@@ -81,8 +82,8 @@
 			} else {?>
 	     	<input type="button" name="edit" id="edit" value="Edita">
 	        </p>
-	        <input name="nom_propietari" type="text" id="nom_propietari" placeholder="Nom Propietari" required="Obligatori" /><br />
-	        <input name="cognom_propietari" type="text" id="cognom_propietari" placeholder="Cognom Propietari" required="Obligatori" /><br />
+	        <input name="nom_propietari" type="text" id="nom_propietari" maxlength="20" placeholder="Nom Propietari" required="Obligatori" pattern="[A-Za-z]{1,20}+" /><br />
+	        <input name="cognom_propietari" type="text" id="cognom_propietari" placeholder="Cognom Propietari" maxlength="50" required="Obligatori" pattern="[A-Za-z]+" /><br />
 	           <input name="telefon" type="text" id="telefon" placeholder="Telefon" required="Obligatori" /><br />
 	         <input name="email" type="email" id="email" placeholder="email" required="Obligatori" /><br />
 	        <input type="submit" id="submit" value="Enviar">
@@ -91,6 +92,7 @@
 				</td>
 			</tr>
 		</table>
+
 		<div class="positionBtn"><button>Torna</button></div>
 		<?php 
 		include "footer.php";
@@ -101,6 +103,7 @@
     		header('Location: ./');
     	}
 		 ?>
+
 	</div>
 </div>
 </div>
