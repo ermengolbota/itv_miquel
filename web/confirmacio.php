@@ -50,7 +50,8 @@
 					<h2>Cita eliminada</h2>
 				<?php
 					} else {
-						header('Location: ./');
+						echo $_SESSION['accio'];
+						//header('Location: ./');
 					}
 					session_destroy();
 				?>
