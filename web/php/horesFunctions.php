@@ -21,7 +21,20 @@
  	} else {
  		return false;
  	}
- 	
+ }
+
+ function correctDay($day,$month,$year){
+ 	$ddate = $year."-".$month."-".$day;
+ 	$date = new DateTime($ddate);
+ 	$numDay = $date->format("N");
+ 	$dayT = date("d");
+ 	$monthT = date("m");
+ 	$yearT = date("Y");
+ 	if($numDay == 6 || $numDay == 7 || $dayT > $day && $monthT >= $month && $yearT >= $year){
+ 		return false;
+ 	} else {
+ 		return true;
+ 	}
  }
 
 ?>
