@@ -11,11 +11,16 @@
 	$id = $_SESSION["id"];
 	
 
-	//Creació de les variables de sessió que s'utilitzaran per la confirmació de la cita
-	$_SESSION['nom'] = $_POST['nom_propietari'];
-	$_SESSION['cognom'] = $_POST['cognom_propietari'];
-	$_SESSION['tlf'] = $_POST['telefon'];
-	$_SESSION['email'] = $_POST['email'];
+	//Creació de les variables de sessió que s'utilitzaran per la confirmació de la cita + validació
+	if (validateNom($_POST['nom_propietari']) && validateCognom($_POST['cognom_propietari']) && validateTlf($_POST['telefon']) && validateMail($_POST['email'])) {
+		$_SESSION['nom'] = $_POST['nom_propietari'];
+		$_SESSION['cognom'] = $_POST['cognom_propietari'];
+		$_SESSION['tlf'] = $_POST['telefon'];
+		$_SESSION['email'] = $_POST['email'];
+	} else {
+		$_SESSION['error'] = 0;
+		header('Location: ../error.php');
+	}
 
 	//Creació de variables a partir de la seva variable de SESSION
 	$tlf = $_SESSION['tlf'];

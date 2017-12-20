@@ -12,3 +12,7 @@ INSERT INTO Reserva VALUES('1113BBB1512034603', '1113BBB', CURRENT_DATE, TIME('1
 INSERT INTO Reserva VALUES('1114BBB1512034603', '1114BBB', CURRENT_DATE, TIME('18:00'), 1, 1, 'turismo', 'Joan', 'Calafat', '666555666', 'a15joacalsas@iam.cat');
 INSERT INTO Reserva VALUES('1115BBB1512034603', '1115BBB', CURRENT_DATE, TIME('19:00'), 1, 1, 'turismo', 'Miquel', 'Vidal', '666111666', 'a15miqvidgom@iam.cat');
 INSERT INTO Reserva VALUES('1116BBB1512034603', '1116BBB', CURRENT_DATE, TIME('19:00'), 2, 1, 'turismo', 'Miquel', 'Vidal', '666111666', 'a15miqvidgom@iam.cat');
+INSERT INTO Reserva VALUES('15137639353333BBB', '3333BBB', CURRENT_DATE, TIME('17:30'), 2, 1, 'turismo', 'Miquel', 'Vidal', '666111666', 'a15miqvidgom@iam.cat');
+INSERT INTO Reserva VALUES('15137628898888FFF', '8888FFF', CURRENT_DATE, TIME('18:30'), 1, 1, 'turismo', 'Miquel', 'Vidal', '666111666', 'a15miqvidgom@iam.cat');
+INSERT INTO Reserva VALUES('15137565199999ZZZ', '9999ZZZ', CURRENT_DATE, TIME('18:30'), 2, 1, 'turismo', 'Miquel', 'Vidal', '666111666', 'a15miqvidgom@iam.cat');
+INSERT INTO Reserva VALUES('15137644502222SSS', '2222SSS', CURRENT_DATE, TIME('19:30'), 1, 1, 'turismo', 'Miquel', 'Vidal', '666111666', 'a15miqvidgom@iam.cat');

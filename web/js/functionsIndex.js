@@ -27,7 +27,7 @@ var error=0;
 		}else{
 
 //Patró per mirar si la matricula es correcte
-var pattern = /^\d\d\d\d[BCDFGHJKLMNPRSTVWXYZ]{3}$/ ;
+var pattern = /^\d\d\d\d[BCDFGHJKLMNPRSTQVWXYZ]{3}$/ ;
 
 //Si no es correcte el patró, pinta el color de fons vermell i guarda una variable d'error = 1
 if (!pattern.test($('#matricula').val().toUpperCase())) {
@@ -56,7 +56,7 @@ else {
 		}else{
 
 //Patró per mirar si la matricula es correcte
-var pattern = /^\d\d\d\d[BCDFGHJKLMNPRSTVWXYZ]{3}$/ ;
+var pattern = /^\d\d\d\d[BCDFGHJKLMNPRSTQVWXYZ]{3}$/ ;
 
 //Si no es correcte el patró, pinta el color de fons vermell i guarda una variable d'error = 1
 if (!pattern.test($('#matricula').val())) {

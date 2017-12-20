@@ -2,6 +2,10 @@
 
 MyITV allows you to create and manage ITV appointments with IAMotors.
 
+
+## Current version ##
+0.8
+
 ## Flux ##
 [Moqup](https://app.moqups.com/a15aracarjim@iam.cat/KabVlsjmo6/view)
 
@@ -12,7 +16,6 @@ MyITV allows you to create and manage ITV appointments with IAMotors.
 [Labs](http://labs.iam.cat/~a15miqvidgom/myitv/)
 
 ## Getting Started ##
-
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites ###
@@ -23,15 +26,17 @@ These instructions will get you a copy of the project up and running on your loc
 1. On your web server navigate to your web directory, and use the next command: git clone https://a15miqvidgom@bitbucket.org/a15miqvidgom/myitv.git
 2. Create a new empty database, we recommend the name 'IAMotors'
 3. Import on your database the file createDatabase.sql located on the path myitv/doc/sql
-  * IMPORTANT, if the recommended name can't or it's not used, change the first line of the file to USE [used database name];
-4. [Optional] If you want test data, import on your database the file testData.sql located on the path myitv/doc/sql
-  * IMPORTANT, if the recommended name can't or it's not used, change the first line of the file to USE [used database name]; 
-5. [Optional] If you want to change password of the admin part, we recommend doing so, navigate to the myitv directory an run the following command: htpasswd .htpasswd admin
-6. Change the the variables $db_database, db_username, and db_password, located on the path myitv/php/config.php to fit your database
-7. Change the permissions, at least, on the web directory to 755
+* IMPORTANT, if the recommended name can't or it's not used, change the first line of the file to USE [used database name];
+4. [Optional] If you want to change password of the admin part, we recommend doing so, navigate to the myitv directory an run the following command: htpasswd .htpasswd admin
+5. Change the the variables $db_database, db_username, and db_password, located on the path myitv/php/config.php to fit your database
+6. Change the permissions, at least, on the web directory to 755
 
 ## Running the tests ##
-WIP
+You can run your own test importing the testData.sql provided, to do so follow the followig:
+1. Make sure all the non-optional steps on the installing part are done.
+2. Import on your database the file testData.sql located on the path myitv/doc/sql
+* IMPORTANT, if the recommended name can't or it's not used, change the first line of the file to USE [used database name];
+This will create appointments for the same day, make sure to delete those when the test are finished.
 
 ### Break down into end to end tests ###
 WIP
