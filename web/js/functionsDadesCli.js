@@ -4,8 +4,10 @@ $(document).ready(function() {
 	//Amaga el camp per editar la matricula
 	$('#edit_matricula').hide();
 
-	//Quan l'usuari apreta F5, crida la funcio
-	//$(document).on("keydown", disableF5);
+	$(".torna").click(function () {
+    	//window.history.back();
+    	window.location.href = "./hores.php";
+	});
 
 
 	//si a l'ID new_matricula es fa un focus out
@@ -72,4 +74,6 @@ $(document).ready(function() {
 			$("#telefon").css("background-color","white");
 		}
 	});
-});
+
+	
+	});

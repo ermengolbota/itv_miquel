@@ -19,7 +19,7 @@
   }else{
   $_SESSION['block'] = 1;
   }*/
- 
+ $_SESSION["enrera"] == 0;
   ?>
     <div class="container">
   		<div class="row">
